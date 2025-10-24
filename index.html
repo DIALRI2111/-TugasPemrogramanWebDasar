@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="EcoOil - Pengelolaan minyak jelantah berkelanjutan. Daur ulang minyak jelantah menjadi energi terbarukan dan produk ramah lingkungan."
+    />
+    <meta
+      name="keywords"
+      content="minyak jelantah, daur ulang, energi terbarukan, biodiesel, ecooil, lingkungan"
+    />
+    <title>EcoOil - Pengelolaan Minyak Jelantah Berkelanjutan</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #2e7d32;
+        --primary-dark: #1b5e20;
+        --primary-light: #4caf50;
+        --secondary: #ffc107;
+        --dark: #333;
+        --light: #f9f9f9;
+        --gray: #777;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+        color: var(--primary) !important;
+      }
+
+      .navbar-nav .nav-link {
+        color: var(--dark) !important;
+        font-weight: 500;
+        margin: 0 5px;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        color: var(--primary) !important;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        border-color: var(--primary-dark);
+      }
+
+      .btn-outline-primary {
+        color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn-outline-primary:hover {
+        background-color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 150px 0;
+      }
+
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+        height: 100%;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-icon {
+        font-size: 40px;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .process-step {
+        text-align: center;
+        padding: 20px;
+        position: relative;
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .team-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+        overflow: hidden;
+      }
+
+      .team-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .team-img {
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .team-social {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+      }
+
+      .team-social a {
+        width: 36px;
+        height: 36px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .team-social a:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .contact-section {
+        background-color: var(--primary-dark);
+        color: white;
+      }
+
+      .contact-icon {
+        font-size: 24px;
+        color: var(--secondary);
+        margin-right: 15px;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+      }
+
+      .footer-links a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+      }
+
+      .bg-light-green {
+        background-color: #f0f7f0;
+      }
+
+      /* New Styles for Additional Sections */
+      .blog-card,
+      .testimonial-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+        height: 100%;
+      }
+
+      .blog-card:hover,
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .testimonial-img img {
+        border: 3px solid var(--primary);
+      }
+
+      .partner-logo {
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all 0.3s;
+      }
+
+      .partner-logo:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 1000;
+      }
+
+      .back-to-top.show {
+        opacity: 1;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 24px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: transform 0.3s;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
+
+      .stats-counter {
+        font-size: 3rem;
+        font-weight: bold;
+        color: var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <i class="fas fa-recycle me-2"></i>
+          EcoOil
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Layanan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#process">Proses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#team">Tim Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">Artikel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Kontak</a>
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0"
+            >Hubungi Kami</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-center" id="home">
+      <div class="container">
+        <h1 class="display-4 fw-bold mb-4">
+          Mengubah Minyak Jelantah Menjadi Energi Berkelanjutan
+        </h1>
+        <p class="lead mb-4">
+          Kami menyediakan solusi pengelolaan minyak jelantah yang ramah
+          lingkungan dan bernilai ekonomi untuk rumah tangga dan bisnis.
+        </p>
+        <a href="#about" class="btn btn-primary btn-lg me-2"
+          >Pelajari Lebih Lanjut</a
+        >
+        <a href="#contact" class="btn btn-outline-light btn-lg"
+          >Mulai Daur Ulang</a
+        >
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h2 class="fw-bold mb-4">Tentang EcoOil</h2>
+            <p class="mb-4">
+              EcoOil adalah perusahaan yang berkomitmen untuk mengelola minyak
+              jelantah secara bertanggung jawab dan berkelanjutan. Kami
+              bertujuan untuk mengurangi dampak lingkungan dari pembuangan
+              minyak jelantah yang tidak tepat.
+            </p>
+            <p class="mb-4">
+              Dengan jaringan pengumpulan yang luas dan teknologi pengolahan
+              mutakhir, kami memastikan setiap tetes minyak jelantah dikelola
+              dengan cara yang paling ramah lingkungan dan ekonomis.
+            </p>
+            <div class="d-flex">
+              <div class="me-4 text-center">
+                <div class="stats-counter" data-count="500">0</div>
+                <p>Klien Terlayani</p>
+              </div>
+              <div class="me-4 text-center">
+                <div class="stats-counter" data-count="50000">0</div>
+                <p>Liter Terolah</p>
+              </div>
+              <div class="text-center">
+                <div class="stats-counter" data-count="10">0</div>
+                <p>Kota Terjangkau</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Proses daur ulang minyak jelantah"
+              class="img-fluid rounded shadow"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding bg-light-green" id="services">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Layanan Kami</h2>
+          <p>
+            Kami menawarkan berbagai layanan untuk memenuhi kebutuhan
+            pengelolaan minyak jelantah Anda.
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card service-card h-100">
+              <div class="card-body text-center p-4">
+                <div class="service-icon">
+                  <i class="fas fa-sync-alt"></i>
+                </div>
+                <h4 class="card-title">Pengumpulan Minyak Jelantah</h4>
+                <p class="card-text">
+                  Layanan penjemputan minyak jelantah dari rumah tangga,
+                  restoran, dan industri makanan dengan jadwal yang fleksibel.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card service-card h-100">
+              <div class="card-body text-center p-4">
+                <div class="service-icon">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <h4 class="card-title">Pengolahan & Daur Ulang</h4>
+                <p class="card-text">
+                  Mengubah minyak jelantah menjadi biodiesel, sabun, dan produk
+                  ramah lingkungan lainnya melalui proses yang aman dan efisien.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card service-card h-100">
+              <div class="card-body text-center p-4">
+                <div class="service-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <h4 class="card-title">Konsultasi Pengelolaan Limbah</h4>
+                <p class="card-text">
+                  Memberikan saran dan solusi terbaik untuk mengelola limbah
+                  minyak jelantah di bisnis Anda secara efektif dan
+                  berkelanjutan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section-padding" id="process">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Proses Kami</h2>
+          <p>
+            Bagaimana kami mengubah minyak jelantah menjadi produk bernilai
+            tinggi melalui proses yang ramah lingkungan.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h4>Pengumpulan</h4>
+              <p>
+                Minyak jelantah dikumpulkan dari berbagai sumber dengan standar
+                kebersihan yang ketat.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h4>Pemurnian</h4>
+              <p>
+                Proses filtrasi dan pemurnian untuk menghilangkan kotoran dan
+                partikel padat.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h4>Konversi</h4>
+              <p>
+                Mengubah minyak menjadi biodiesel atau produk bernilai lainnya
+                melalui proses kimia.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h4>Distribusi</h4>
+              <p>
+                Produk akhir didistribusikan ke pasar atau digunakan untuk
+                kebutuhan energi terbarukan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding bg-light-green" id="team">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Tim Kami</h2>
+          <p>
+            Bertemu dengan tim profesional yang berdedikasi di balik kesuksesan
+            EcoOil.
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="card team-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                class="card-img-top team-img"
+                alt="Direktur Utama"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Ahmad Wijaya</h5>
+                <p class="card-text text-primary">Direktur Utama</p>
+                <p class="card-text">
+                  Memimpin strategi perusahaan dengan pengalaman 15 tahun di
+                  industri energi terbarukan.
+                </p>
+                <div class="team-social">
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card team-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                class="card-img-top team-img"
+                alt="Kepala Operasional"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Sari Dewi</h5>
+                <p class="card-text text-primary">Kepala Operasional</p>
+                <p class="card-text">
+                  Mengawasi seluruh proses operasional dengan fokus pada
+                  efisiensi dan kualitas.
+                </p>
+                <div class="team-social">
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card team-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                class="card-img-top team-img"
+                alt="Manajer Teknologi"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Rina Kartika</h5>
+                <p class="card-text text-primary">Manajer Teknologi</p>
+                <p class="card-text">
+                  Ahli dalam teknologi pengolahan limbah dengan spesialisasi
+                  dalam konversi energi.
+                </p>
+                <div class="team-social">
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card team-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                class="card-img-top team-img"
+                alt="Koordinator Lapangan"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Budi Santoso</h5>
+                <p class="card-text text-primary">Koordinator Lapangan</p>
+                <p class="card-text">
+                  Memastikan operasional pengumpulan minyak jelantah berjalan
+                  lancar di seluruh area.
+                </p>
+                <div class="team-social">
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section-padding" id="blog">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Artikel & Tips</h2>
+          <p>
+            Informasi terbaru tentang pengelolaan minyak jelantah dan lingkungan
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card blog-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                class="card-img-top"
+                alt="Blog 1"
+                style="height: 200px; object-fit: cover"
+              />
+              <div class="card-body">
+                <span class="badge bg-primary mb-2">Tips</span>
+                <h5 class="card-title">
+                  Cara Menyimpan Minyak Jelantah yang Benar
+                </h5>
+                <p class="card-text">
+                  Pelajari cara menyimpan minyak jelantah dengan aman sebelum
+                  didaur ulang untuk menjaga kualitas dan keamanannya.
+                </p>
+                <a href="#" class="btn btn-outline-primary btn-sm"
+                  >Baca Selengkapnya</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card blog-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                class="card-img-top"
+                alt="Blog 2"
+                style="height: 200px; object-fit: cover"
+              />
+              <div class="card-body">
+                <span class="badge bg-success mb-2">Lingkungan</span>
+                <h5 class="card-title">
+                  Manfaat Daur Ulang Minyak Jelantah untuk Lingkungan
+                </h5>
+                <p class="card-text">
+                  Temukan bagaimana daur ulang minyak jelantah dapat mengurangi
+                  polusi dan mendukung ekonomi sirkular.
+                </p>
+                <a href="#" class="btn btn-outline-primary btn-sm"
+                  >Baca Selengkapnya</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card blog-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                class="card-img-top"
+                alt="Blog 3"
+                style="height: 200px; object-fit: cover"
+              />
+              <div class="card-body">
+                <span class="badge bg-warning mb-2">Bisnis</span>
+                <h5 class="card-title">Peluang Bisnis dari Minyak Jelantah</h5>
+                <p class="card-text">
+                  Jelajahi peluang ekonomi yang dapat dihasilkan dari
+                  pengelolaan minyak jelantah yang tepat.
+                </p>
+                <a href="#" class="btn btn-outline-primary btn-sm"
+                  >Baca Selengkapnya</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding bg-light-green" id="testimonials">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Apa Kata Klien Kami</h2>
+          <p>Testimoni dari pelanggan yang telah menggunakan layanan kami</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card testimonial-card h-100">
+              <div class="card-body text-center p-4">
+                <div class="testimonial-img mb-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                    class="rounded-circle"
+                    width="80"
+                    height="80"
+                    alt="Testimoni 1"
+                  />
+                </div>
+                <p class="card-text">
+                  "Layanan EcoOil sangat profesional. Proses pengambilan minyak
+                  jelantah cepat dan mudah. Sekarang kami tidak perlu khawatir
+                  dengan limbah minyak dari restoran."
+                </p>
+                <h5 class="card-title">Sarah Restaurant</h5>
+                <p class="text-muted">Pemilik Restoran</p>
+                <div class="text-warning">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card testimonial-card h-100">
+              <div class="card-body text-center p-4">
+                <div class="testimonial-img mb-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                    class="rounded-circle"
+                    width="80"
+                    height="80"
+                    alt="Testimoni 2"
+                  />
+                </div>
+                <p class="card-text">
+                  "Sebagai hotel besar, kami menghasilkan banyak minyak
+                  jelantah. EcoOil memberikan solusi yang tepat dengan jadwal
+                  pengambilan yang fleksibel dan layanan yang ramah."
+                </p>
+                <h5 class="card-title">Budi Hartono</h5>
+                <p class="text-muted">Manajer Hotel</p>
+                <div class="text-warning">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card testimonial-card h-100">
+              <div class="card-body text-center p-4">
+                <div class="testimonial-img mb-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    class="rounded-circle"
+                    width="80"
+                    height="80"
+                    alt="Testimoni 3"
+                  />
+                </div>
+                <p class="card-text">
+                  "Saya senang bisa berkontribusi pada lingkungan dengan mendaur
+                  ulang minyak jelantah melalui EcoOil. Prosesnya mudah dan
+                  timnya sangat membantu."
+                </p>
+                <h5 class="card-title">Dewi Lestari</h5>
+                <p class="text-muted">Ibu Rumah Tangga</p>
+                <div class="text-warning">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Mitra Kami</h2>
+          <p>
+            Berkolaborasi dengan berbagai perusahaan dan organisasi terpercaya
+          </p>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img
+              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Hotel"
+              alt="Mitra 1"
+              class="img-fluid partner-logo"
+            />
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img
+              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Resto"
+              alt="Mitra 2"
+              class="img-fluid partner-logo"
+            />
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img
+              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Catering"
+              alt="Mitra 3"
+              class="img-fluid partner-logo"
+            />
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img
+              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=UMKM"
+              alt="Mitra 4"
+              class="img-fluid partner-logo"
+            />
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
+            <img
+              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=School"
+              alt="Mitra 5"
+              class="img-fluid partner-logo"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section
+    <section class="section-padding bg-primary text-white">
+      <div class="container text-center">
+        <h2 class="mb-4">Siap Bergabung dengan Gerakan Lingkungan?</h2>
+        <p class="lead mb-4">
+          Mulai daur ulang minyak jelantah Anda hari ini dan dapatkan manfaatnya
+        </p>
+        <div
+          class="d-flex flex-column flex-md-row justify-content-center gap-3"
+        >
+          <a href="#contact" class="btn btn-light btn-lg"
+            >Hubungi Kami Sekarang</a
+          >
+          <a href="tel:+622112345678" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-phone me-2"></i>+62 21 1234 5678
+          </a>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section class="section-padding contact-section" id="contact">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2 class="text-white">Hubungi Kami</h2>
+          <p class="text-light">
+            Siap untuk berkontribusi pada lingkungan yang lebih bersih? Hubungi
+            kami hari ini.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-lg-5 mb-4 mb-lg-0">
+            <h4 class="mb-4">Informasi Kontak</h4>
+            <p class="mb-4">
+              Kami siap membantu Anda dengan segala pertanyaan tentang
+              pengelolaan minyak jelantah.
+            </p>
+            <div class="d-flex align-items-center mb-3">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <p class="mb-0">Jl. Lingkungan Hijau No. 123, Jakarta Selatan</p>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <i class="fas fa-phone contact-icon"></i>
+              <p class="mb-0">+62 21 1234 5678</p>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <i class="fas fa-envelope contact-icon"></i>
+              <p class="mb-0">info@ecooil.id</p>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-clock contact-icon"></i>
+              <p class="mb-0">Senin - Jumat: 08.00 - 17.00 WIB</p>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nama Lengkap"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Subjek"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <textarea
+                    class="form-control"
+                    rows="5"
+                    placeholder="Pesan"
+                    required
+                  ></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">
+                    Kirim Pesan
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h4 class="mb-4 text-warning">EcoOil</h4>
+            <p>
+              Perusahaan pengelolaan minyak jelantah terdepan yang berkomitmen
+              untuk menciptakan lingkungan yang lebih bersih dan berkelanjutan.
+            </p>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h5 class="mb-4 text-warning">Tautan Cepat</h5>
+            <ul class="list-unstyled footer-links">
+              <li class="mb-2"><a href="#home">Beranda</a></li>
+              <li class="mb-2"><a href="#about">Tentang Kami</a></li>
+              <li class="mb-2"><a href="#services">Layanan</a></li>
+              <li class="mb-2"><a href="#team">Tim Kami</a></li>
+              <li class="mb-2"><a href="#contact">Kontak</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="mb-4 text-warning">Layanan</h5>
+            <ul class="list-unstyled footer-links">
+              <li class="mb-2"><a href="#">Pengumpulan Minyak Jelantah</a></li>
+              <li class="mb-2"><a href="#">Pengolahan & Daur Ulang</a></li>
+              <li class="mb-2">
+                <a href="#">Konsultasi Pengelolaan Limbah</a>
+              </li>
+              <li class="mb-2"><a href="#">Program Kemitraan</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h5 class="mb-4 text-warning">Terhubung dengan Kami</h5>
+            <div class="d-flex">
+              <a href="#" class="btn btn-outline-light me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="btn btn-outline-light me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="btn btn-outline-light me-2"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="btn btn-outline-light"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-5 bg-light" />
+        <div class="text-center">
+          <p class="mb-0">&copy; 2023 EcoOil. Semua Hak Dilindungi.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/622112345678?text=Halo%20EcoOil,%20saya%20ingin%20bertanya%20tentang%20layanan%20pengelolaan%20minyak%20jelantah"
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Navbar active state update on scroll
+      window.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+
+        // Back to top button visibility
+        const backToTopButton = document.querySelector(".back-to-top");
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add("show");
+        } else {
+          backToTopButton.classList.remove("show");
+        }
+      });
+
+      // Animated counter for statistics
+      function animateCounter() {
+        const counters = document.querySelectorAll(".stats-counter");
+        const speed = 200;
+
+        counters.forEach((counter) => {
+          const target = +counter.getAttribute("data-count");
+          const count = +counter.innerText;
+          const increment = target / speed;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(animateCounter, 1);
+          } else {
+            counter.innerText = target.toLocaleString();
+          }
+        });
+      }
+
+      // Initialize counter when section is in viewport
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter();
+            observer.unobserve(entry.target);
+          }
+        });
+      });
+
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        observer.observe(aboutSection);
+      }
+    </script>
+  </body>
+</html>
