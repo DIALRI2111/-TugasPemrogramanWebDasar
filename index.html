@@ -33,46 +33,74 @@
         --gray: #777;
       }
 
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
         color: var(--dark);
+        overflow-x: hidden;
       }
 
       .navbar-brand {
         font-weight: bold;
         color: var(--primary) !important;
+        font-size: 1.5rem;
+      }
+
+      .navbar-toggler {
+        border: none;
+        padding: 4px 8px;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none;
       }
 
       .navbar-nav .nav-link {
         color: var(--dark) !important;
         font-weight: 500;
         margin: 0 5px;
+        padding: 8px 12px !important;
+        border-radius: 5px;
+        transition: all 0.3s ease;
       }
 
       .navbar-nav .nav-link:hover,
       .navbar-nav .nav-link.active {
         color: var(--primary) !important;
+        background-color: rgba(46, 125, 50, 0.1);
       }
 
       .btn-primary {
         background-color: var(--primary);
         border-color: var(--primary);
+        padding: 10px 20px;
+        font-weight: 600;
+        border-radius: 8px;
       }
 
       .btn-primary:hover {
         background-color: var(--primary-dark);
         border-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
       .btn-outline-primary {
         color: var(--primary);
         border-color: var(--primary);
+        padding: 10px 20px;
+        font-weight: 600;
+        border-radius: 8px;
       }
 
       .btn-outline-primary:hover {
         background-color: var(--primary);
         border-color: var(--primary);
+        transform: translateY(-2px);
       }
 
       .hero {
@@ -80,51 +108,81 @@
           url("https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
         background-size: cover;
         background-position: center;
+        background-attachment: fixed;
         color: white;
-        padding: 150px 0;
+        padding: 120px 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        margin-bottom: 2rem;
       }
 
       .section-padding {
-        padding: 80px 0;
+        padding: 60px 0;
+      }
+
+      @media (min-width: 768px) {
+        .section-padding {
+          padding: 80px 0;
+        }
       }
 
       .section-title {
-        margin-bottom: 50px;
+        margin-bottom: 40px;
       }
 
       .section-title h2 {
         color: var(--primary);
         font-weight: 700;
         margin-bottom: 15px;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
       }
 
       .section-title p {
         color: var(--gray);
         max-width: 700px;
         margin: 0 auto;
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
       }
 
       .service-card {
         border: none;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
         height: 100%;
+        overflow: hidden;
       }
 
       .service-card:hover {
         transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
       }
 
       .service-icon {
-        font-size: 40px;
+        font-size: 48px;
         color: var(--primary);
         margin-bottom: 20px;
+        display: inline-block;
+        padding: 15px;
+        border-radius: 50%;
+        background: rgba(46, 125, 50, 0.1);
       }
 
       .process-step {
         text-align: center;
-        padding: 20px;
+        padding: 20px 15px;
         position: relative;
       }
 
@@ -140,23 +198,27 @@
         margin: 0 auto 20px;
         font-size: 24px;
         font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
       .team-card {
         border: none;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
         overflow: hidden;
+        height: 100%;
       }
 
       .team-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
 
       .team-img {
         height: 250px;
         object-fit: cover;
+        width: 100%;
       }
 
       .team-social {
@@ -176,11 +238,12 @@
         justify-content: center;
         margin: 0 5px;
         text-decoration: none;
-        transition: background-color 0.3s;
+        transition: all 0.3s ease;
       }
 
       .team-social a:hover {
         background-color: var(--primary-dark);
+        transform: scale(1.1);
       }
 
       .contact-section {
@@ -192,6 +255,8 @@
         font-size: 24px;
         color: var(--secondary);
         margin-right: 15px;
+        min-width: 30px;
+        text-align: center;
       }
 
       footer {
@@ -203,10 +268,13 @@
         color: #ddd;
         text-decoration: none;
         transition: color 0.3s;
+        display: block;
+        margin-bottom: 8px;
       }
 
       .footer-links a:hover {
         color: var(--secondary);
+        padding-left: 5px;
       }
 
       .bg-light-green {
@@ -217,25 +285,31 @@
       .blog-card,
       .testimonial-card {
         border: none;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
         height: 100%;
+        overflow: hidden;
       }
 
       .blog-card:hover,
       .testimonial-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
 
       .testimonial-img img {
         border: 3px solid var(--primary);
+        object-fit: cover;
       }
 
       .partner-logo {
         filter: grayscale(100%);
         opacity: 0.7;
         transition: all 0.3s;
+        padding: 15px;
+        max-height: 80px;
+        object-fit: contain;
       }
 
       .partner-logo:hover {
@@ -245,8 +319,8 @@
 
       .back-to-top {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
+        bottom: 20px;
+        right: 20px;
         width: 50px;
         height: 50px;
         background-color: var(--primary);
@@ -257,18 +331,24 @@
         justify-content: center;
         text-decoration: none;
         opacity: 0;
-        transition: opacity 0.3s;
+        transition: all 0.3s ease;
         z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
 
       .back-to-top.show {
         opacity: 1;
       }
 
+      .back-to-top:hover {
+        background-color: var(--primary-dark);
+        transform: scale(1.1);
+      }
+
       .whatsapp-float {
         position: fixed;
-        bottom: 30px;
-        left: 30px;
+        bottom: 20px;
+        left: 20px;
         width: 60px;
         height: 60px;
         background-color: #25d366;
@@ -281,40 +361,263 @@
         font-size: 24px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         z-index: 1000;
-        transition: transform 0.3s;
+        transition: all 0.3s ease;
       }
 
       .whatsapp-float:hover {
         transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
       }
 
       .stats-counter {
-        font-size: 3rem;
+        font-size: clamp(2rem, 5vw, 3rem);
         font-weight: bold;
         color: var(--primary);
+        display: block;
+      }
+
+      .stats-item {
+        text-align: center;
+        padding: 15px;
+      }
+
+      .stats-item p {
+        margin-top: 10px;
+        font-weight: 500;
+        color: var(--gray);
+      }
+
+      /* Mobile Navigation Improvements */
+      @media (max-width: 991.98px) {
+        .navbar-collapse {
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          margin-top: 10px;
+        }
+
+        .navbar-nav {
+          text-align: center;
+        }
+
+        .navbar-nav .nav-item {
+          margin: 5px 0;
+        }
+
+        .btn-primary.ms-lg-3 {
+          margin-top: 15px !important;
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      /* Process steps mobile improvement */
+      @media (max-width: 767.98px) {
+        .process-step {
+          margin-bottom: 30px;
+        }
+
+        .step-number {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+      }
+
+      /* Team section mobile improvement */
+      @media (max-width: 767.98px) {
+        .team-card {
+          margin-bottom: 30px;
+        }
+      }
+
+      /* Form improvements for mobile */
+      .form-control {
+        border-radius: 8px;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+      }
+
+      /* Loading animation */
+      .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Image optimization */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Text readability improvements */
+      p,
+      li {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      @media (max-width: 576px) {
+        p,
+        li {
+          font-size: 0.95rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          word-wrap: break-word;
+        }
+      }
+
+      /* Card content spacing */
+      .card-body {
+        padding: 25px;
+      }
+
+      @media (max-width: 576px) {
+        .card-body {
+          padding: 20px;
+        }
+      }
+
+      /* Improved grid for mobile */
+      .row {
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+
+      .row > [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      /* CTA section improvements */
+      .cta-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        );
+      }
+
+      /* Mobile menu animation */
+      .navbar-toggler span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px 0;
+        background: var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      /* Gallery & Video Styles */
+      .gallery-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      .gallery-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .video-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      .video-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .video-card iframe {
+        border-radius: 12px 12px 0 0;
+      }
+
+      /* Responsive adjustments for gallery and video */
+      @media (max-width: 768px) {
+        .gallery-card img,
+        .video-card iframe {
+          height: 200px;
+        }
+
+        .video-card .p-4 {
+          padding: 1rem !important;
+        }
+
+        .video-card .p-3 {
+          padding: 0.75rem !important;
+        }
       }
     </style>
   </head>
   <body>
     <!-- Header & Navigation -->
     <nav
-      class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm"
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3"
     >
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a class="navbar-brand d-flex align-items-center" href="#home">
           <i class="fas fa-recycle me-2"></i>
-          EcoOil
+          <span>EcoOil</span>
         </a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" href="#home">Beranda</a>
             </li>
@@ -334,6 +637,15 @@
               <a class="nav-link" href="#blog">Artikel</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#testimonials">Testimoni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#video">Video</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#contact">Kontak</a>
             </li>
           </ul>
@@ -347,19 +659,27 @@
     <!-- Hero Section -->
     <section class="hero text-center" id="home">
       <div class="container">
-        <h1 class="display-4 fw-bold mb-4">
-          Mengubah Minyak Jelantah Menjadi Energi Berkelanjutan
-        </h1>
-        <p class="lead mb-4">
-          Kami menyediakan solusi pengelolaan minyak jelantah yang ramah
-          lingkungan dan bernilai ekonomi untuk rumah tangga dan bisnis.
-        </p>
-        <a href="#about" class="btn btn-primary btn-lg me-2"
-          >Pelajari Lebih Lanjut</a
-        >
-        <a href="#contact" class="btn btn-outline-light btn-lg"
-          >Mulai Daur Ulang</a
-        >
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <h1 class="display-4 fw-bold mb-4">
+              Mengubah Minyak Jelantah Menjadi Energi Berkelanjutan
+            </h1>
+            <p class="lead mb-4">
+              Kami menyediakan solusi pengelolaan minyak jelantah yang ramah
+              lingkungan dan bernilai ekonomi untuk rumah tangga dan bisnis.
+            </p>
+            <div
+              class="d-flex flex-column flex-sm-row justify-content-center gap-3"
+            >
+              <a href="#about" class="btn btn-primary btn-lg"
+                >Pelajari Lebih Lanjut</a
+              >
+              <a href="#contact" class="btn btn-outline-light btn-lg"
+                >Mulai Daur Ulang</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -380,16 +700,16 @@
               mutakhir, kami memastikan setiap tetes minyak jelantah dikelola
               dengan cara yang paling ramah lingkungan dan ekonomis.
             </p>
-            <div class="d-flex">
-              <div class="me-4 text-center">
+            <div class="row text-center">
+              <div class="col-4 stats-item">
                 <div class="stats-counter" data-count="500">0</div>
                 <p>Klien Terlayani</p>
               </div>
-              <div class="me-4 text-center">
+              <div class="col-4 stats-item">
                 <div class="stats-counter" data-count="50000">0</div>
                 <p>Liter Terolah</p>
               </div>
-              <div class="text-center">
+              <div class="col-4 stats-item">
                 <div class="stats-counter" data-count="10">0</div>
                 <p>Kota Terjangkau</p>
               </div>
@@ -400,6 +720,7 @@
               src="https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
               alt="Proses daur ulang minyak jelantah"
               class="img-fluid rounded shadow"
+              loading="lazy"
             />
           </div>
         </div>
@@ -536,6 +857,7 @@
                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                 class="card-img-top team-img"
                 alt="Direktur Utama"
+                loading="lazy"
               />
               <div class="card-body text-center">
                 <h5 class="card-title">Ahmad Wijaya</h5>
@@ -558,6 +880,7 @@
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                 class="card-img-top team-img"
                 alt="Kepala Operasional"
+                loading="lazy"
               />
               <div class="card-body text-center">
                 <h5 class="card-title">Sari Dewi</h5>
@@ -580,6 +903,7 @@
                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                 class="card-img-top team-img"
                 alt="Manajer Teknologi"
+                loading="lazy"
               />
               <div class="card-body text-center">
                 <h5 class="card-title">Rina Kartika</h5>
@@ -602,6 +926,7 @@
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                 class="card-img-top team-img"
                 alt="Koordinator Lapangan"
+                loading="lazy"
               />
               <div class="card-body text-center">
                 <h5 class="card-title">Budi Santoso</h5>
@@ -639,6 +964,7 @@
                 class="card-img-top"
                 alt="Blog 1"
                 style="height: 200px; object-fit: cover"
+                loading="lazy"
               />
               <div class="card-body">
                 <span class="badge bg-primary mb-2">Tips</span>
@@ -662,6 +988,7 @@
                 class="card-img-top"
                 alt="Blog 2"
                 style="height: 200px; object-fit: cover"
+                loading="lazy"
               />
               <div class="card-body">
                 <span class="badge bg-success mb-2">Lingkungan</span>
@@ -685,6 +1012,7 @@
                 class="card-img-top"
                 alt="Blog 3"
                 style="height: 200px; object-fit: cover"
+                loading="lazy"
               />
               <div class="card-body">
                 <span class="badge bg-warning mb-2">Bisnis</span>
@@ -721,6 +1049,7 @@
                     width="80"
                     height="80"
                     alt="Testimoni 1"
+                    loading="lazy"
                   />
                 </div>
                 <p class="card-text">
@@ -750,6 +1079,7 @@
                     width="80"
                     height="80"
                     alt="Testimoni 2"
+                    loading="lazy"
                   />
                 </div>
                 <p class="card-text">
@@ -779,6 +1109,7 @@
                     width="80"
                     height="80"
                     alt="Testimoni 3"
+                    loading="lazy"
                   />
                 </div>
                 <p class="card-text">
@@ -817,6 +1148,7 @@
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Hotel"
               alt="Mitra 1"
               class="img-fluid partner-logo"
+              loading="lazy"
             />
           </div>
           <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
@@ -824,6 +1156,7 @@
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Resto"
               alt="Mitra 2"
               class="img-fluid partner-logo"
+              loading="lazy"
             />
           </div>
           <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
@@ -831,6 +1164,7 @@
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Catering"
               alt="Mitra 3"
               class="img-fluid partner-logo"
+              loading="lazy"
             />
           </div>
           <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
@@ -838,6 +1172,7 @@
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=UMKM"
               alt="Mitra 4"
               class="img-fluid partner-logo"
+              loading="lazy"
             />
           </div>
           <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
@@ -845,14 +1180,261 @@
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=School"
               alt="Mitra 5"
               class="img-fluid partner-logo"
+              loading="lazy"
             />
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="section-padding" id="gallery">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Galeri Kegiatan</h2>
+          <p>
+            Dokumentasi visual proses pengelolaan minyak jelantah dan kegiatan
+            kami
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="card gallery-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                class="card-img-top"
+                alt="Pengumpulan minyak jelantah"
+                style="height: 250px; object-fit: cover"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Pengumpulan Minyak Jelantah</h5>
+                <p class="card-text">
+                  Proses pengambilan minyak jelantah dari restoran dan rumah
+                  tangga mitra kami.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card gallery-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                class="card-img-top"
+                alt="Proses penyaringan"
+                style="height: 250px; object-fit: cover"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Proses Penyaringan</h5>
+                <p class="card-text">
+                  Minyak jelantah disaring untuk menghilangkan kotoran dan
+                  partikel padat.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card gallery-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                class="card-img-top"
+                alt="Produksi biodiesel"
+                style="height: 250px; object-fit: cover"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Produksi Biodiesel</h5>
+                <p class="card-text">
+                  Proses konversi minyak jelantah menjadi biodiesel ramah
+                  lingkungan.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card gallery-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                class="card-img-top"
+                alt="Produk sabun"
+                style="height: 250px; object-fit: cover"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Produk Sabun</h5>
+                <p class="card-text">
+                  Sabun berkualitas tinggi hasil daur ulang minyak jelantah.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card gallery-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-1562077981-4d7eafd88c7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                class="card-img-top"
+                alt="Edukasi masyarakat"
+                style="height: 250px; object-fit: cover"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Edukasi Masyarakat</h5>
+                <p class="card-text">
+                  Program sosialisasi pentingnya daur ulang minyak jelantah.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card gallery-card h-100">
+              <img
+                src="https://images.unsplash.com/photo-156568001312-81b0d304d0b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                class="card-img-top"
+                alt="Penghargaan"
+                style="height: 250px; object-fit: cover"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Penghargaan & Sertifikat</h5>
+                <p class="card-text">
+                  Pengakuan atas komitmen kami terhadap lingkungan
+                  berkelanjutan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section-padding bg-light-green" id="video">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Video Edukasi</h2>
+          <p>
+            Pelajari lebih lanjut tentang pentingnya daur ulang minyak jelantah
+            melalui video berikut
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="card video-card h-100">
+              <div class="card-body p-0">
+                <div class="ratio ratio-16x9">
+                  <iframe
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Video Edukasi Minyak Jelantah"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                  >
+                  </iframe>
+                </div>
+                <div class="p-4">
+                  <h5 class="card-title">Proses Daur Ulang Minyak Jelantah</h5>
+                  <p class="card-text">
+                    Video lengkap tentang bagaimana minyak jelantah diolah
+                    menjadi produk bernilai tinggi.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card video-card h-100">
+              <div class="card-body p-0">
+                <div class="ratio ratio-16x9">
+                  <iframe
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Manfaat Daur Ulang Minyak Jelantah"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                  >
+                  </iframe>
+                </div>
+                <div class="p-4">
+                  <h5 class="card-title">Manfaat untuk Lingkungan</h5>
+                  <p class="card-text">
+                    Dampak positif daur ulang minyak jelantah terhadap
+                    kelestarian lingkungan.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="card video-card h-100">
+              <div class="card-body p-0">
+                <div class="ratio ratio-16x9">
+                  <iframe
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Cara Menyimpan Minyak Jelantah"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                  >
+                  </iframe>
+                </div>
+                <div class="p-3">
+                  <h6 class="card-title">Tips Penyimpanan yang Benar</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card video-card h-100">
+              <div class="card-body p-0">
+                <div class="ratio ratio-16x9">
+                  <iframe
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Kisah Sukses Mitra"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                  >
+                  </iframe>
+                </div>
+                <div class="p-3">
+                  <h6 class="card-title">Kisah Sukses Mitra EcoOil</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card video-card h-100">
+              <div class="card-body p-0">
+                <div class="ratio ratio-16x9">
+                  <iframe
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Inovasi Teknologi"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                  >
+                  </iframe>
+                </div>
+                <div class="p-3">
+                  <h6 class="card-title">Inovasi Teknologi Pengolahan</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
-    <section class="section-padding bg-primary text-white">
+    <section class="section-padding cta-section text-white">
       <div class="container text-center">
         <h2 class="mb-4">Siap Bergabung dengan Gerakan Lingkungan?</h2>
         <p class="lead mb-4">
@@ -906,7 +1488,7 @@
             </div>
           </div>
           <div class="col-lg-7">
-            <form>
+            <form id="contactForm">
               <div class="row g-3">
                 <div class="col-md-6">
                   <input
@@ -941,8 +1523,9 @@
                   ></textarea>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary">
-                    Kirim Pesan
+                  <button type="submit" class="btn btn-primary" id="submitBtn">
+                    <span id="submitText">Kirim Pesan</span>
+                    <span id="submitLoading" class="loading d-none"></span>
                   </button>
                 </div>
               </div>
@@ -966,22 +1549,22 @@
           <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
             <h5 class="mb-4 text-warning">Tautan Cepat</h5>
             <ul class="list-unstyled footer-links">
-              <li class="mb-2"><a href="#home">Beranda</a></li>
-              <li class="mb-2"><a href="#about">Tentang Kami</a></li>
-              <li class="mb-2"><a href="#services">Layanan</a></li>
-              <li class="mb-2"><a href="#team">Tim Kami</a></li>
-              <li class="mb-2"><a href="#contact">Kontak</a></li>
+              <li><a href="#home">Beranda</a></li>
+              <li><a href="#about">Tentang Kami</a></li>
+              <li><a href="#services">Layanan</a></li>
+              <li><a href="#team">Tim Kami</a></li>
+              <li><a href="#gallery">Galeri</a></li>
+              <li><a href="#video">Video</a></li>
+              <li><a href="#contact">Kontak</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
             <h5 class="mb-4 text-warning">Layanan</h5>
             <ul class="list-unstyled footer-links">
-              <li class="mb-2"><a href="#">Pengumpulan Minyak Jelantah</a></li>
-              <li class="mb-2"><a href="#">Pengolahan & Daur Ulang</a></li>
-              <li class="mb-2">
-                <a href="#">Konsultasi Pengelolaan Limbah</a>
-              </li>
-              <li class="mb-2"><a href="#">Program Kemitraan</a></li>
+              <li><a href="#">Pengumpulan Minyak Jelantah</a></li>
+              <li><a href="#">Pengolahan & Daur Ulang</a></li>
+              <li><a href="#">Konsultasi Pengelolaan Limbah</a></li>
+              <li><a href="#">Program Kemitraan</a></li>
             </ul>
           </div>
           <div class="col-lg-3">
@@ -1014,12 +1597,13 @@
       href="https://wa.me/622112345678?text=Halo%20EcoOil,%20saya%20ingin%20bertanya%20tentang%20layanan%20pengelolaan%20minyak%20jelantah"
       class="whatsapp-float"
       target="_blank"
+      aria-label="Chat dengan kami di WhatsApp"
     >
       <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
+    <a href="#" class="back-to-top" aria-label="Kembali ke atas">
       <i class="fas fa-chevron-up"></i>
     </a>
 
@@ -1041,6 +1625,13 @@
               top: targetElement.offsetTop - 80,
               behavior: "smooth",
             });
+
+            // Close mobile menu after clicking
+            const navbarToggler = document.querySelector(".navbar-toggler");
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+            if (navbarCollapse.classList.contains("show")) {
+              navbarToggler.click();
+            }
           }
         });
       });
@@ -1083,11 +1674,11 @@
 
         counters.forEach((counter) => {
           const target = +counter.getAttribute("data-count");
-          const count = +counter.innerText;
+          const count = +counter.innerText.replace(/,/g, "");
           const increment = target / speed;
 
           if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
+            counter.innerText = Math.ceil(count + increment).toLocaleString();
             setTimeout(animateCounter, 1);
           } else {
             counter.innerText = target.toLocaleString();
@@ -1096,19 +1687,59 @@
       }
 
       // Initialize counter when section is in viewport
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCounter();
-            observer.unobserve(entry.target);
-          }
-        });
-      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter();
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
 
       const aboutSection = document.getElementById("about");
       if (aboutSection) {
         observer.observe(aboutSection);
       }
+
+      // Form submission handling
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const submitBtn = document.getElementById("submitBtn");
+          const submitText = document.getElementById("submitText");
+          const submitLoading = document.getElementById("submitLoading");
+
+          // Show loading state
+          submitText.classList.add("d-none");
+          submitLoading.classList.remove("d-none");
+          submitBtn.disabled = true;
+
+          // Simulate form submission
+          setTimeout(function () {
+            // Reset form
+            document.getElementById("contactForm").reset();
+
+            // Show success message (you can replace this with actual form submission)
+            alert(
+              "Pesan Anda telah berhasil dikirim! Kami akan menghubungi Anda segera."
+            );
+
+            // Reset button state
+            submitText.classList.remove("d-none");
+            submitLoading.classList.add("d-none");
+            submitBtn.disabled = false;
+          }, 2000);
+        });
+
+      // Improve mobile touch experience
+      document.addEventListener("touchstart", function () {}, {
+        passive: true,
+      });
     </script>
   </body>
 </html>
