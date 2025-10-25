@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Artikel EcoOil - Tips dan informasi tentang pengelolaan minyak jelantah berkelanjutan"
+    />
+    <meta
+      name="keywords"
+      content="minyak jelantah, daur ulang, tips lingkungan, artikel ecooil"
+    />
+    <title>Artikel - EcoOil</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #2e7d32;
+        --primary-dark: #1b5e20;
+        --primary-light: #4caf50;
+        --secondary: #ffc107;
+        --dark: #333;
+        --light: #f9f9f9;
+        --gray: #777;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+        color: var(--primary) !important;
+        font-size: 1.5rem;
+      }
+
+      .navbar-toggler {
+        border: none;
+        padding: 4px 8px;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none;
+      }
+
+      .navbar-nav .nav-link {
+        color: var(--dark) !important;
+        font-weight: 500;
+        margin: 0 5px;
+        padding: 8px 12px !important;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        color: var(--primary) !important;
+        background-color: rgba(46, 125, 50, 0.1);
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        padding: 10px 20px;
+        font-weight: 600;
+        border-radius: 8px;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        border-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .breadcrumb {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      .breadcrumb-item a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .article-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .article-img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .article-meta {
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .article-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .article-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .sidebar-widget {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+      }
+
+      .widget-title {
+        color: var(--primary);
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      .popular-article {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .popular-article:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+
+      .popular-article img {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-right: 15px;
+      }
+
+      .popular-article h6 {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      .tag {
+        display: inline-block;
+        background: rgba(46, 125, 50, 0.1);
+        color: var(--primary);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin: 2px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .tag:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .share-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .share-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .share-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .facebook {
+        background: #3b5998;
+      }
+      .twitter {
+        background: #1da1f2;
+      }
+      .linkedin {
+        background: #0077b5;
+      }
+      .whatsapp {
+        background: #25d366;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        margin-top: 50px;
+      }
+
+      .footer-links a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+        padding-left: 5px;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-to-top.show {
+        opacity: 1;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--primary-dark);
+        transform: scale(1.1);
+      }
+
+      /* Animation Classes */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .fade-in.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .article-content {
+          font-size: 1rem;
+        }
+
+        .popular-article {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .popular-article img {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <i class="fas fa-recycle me-2"></i>
+          <span>EcoOil</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#services">Layanan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#process">Proses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#team">Tim Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="artikel.html">Artikel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#testimonials">Testimoni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#gallery">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#video">Video</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Kontak</a>
+            </li>
+          </ul>
+          <a
+            href="index.html#contact"
+            class="btn btn-primary ms-lg-3 mt-3 mt-lg-0"
+            >Hubungi Kami</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="py-4 bg-light">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+            <li class="breadcrumb-item active">Artikel</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Artikel Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <!-- Artikel Utama -->
+            <article class="fade-in">
+              <div class="mb-4">
+                <span class="badge bg-primary mb-2">Tips</span>
+                <h1 class="display-5 fw-bold mb-3">
+                  Cara Menyimpan Minyak Jelantah yang Benar
+                </h1>
+                <div class="article-meta mb-4">
+                  <i class="far fa-calendar me-2"></i>15 Maret 2024
+                  <i class="far fa-user ms-3 me-2"></i>Admin EcoOil
+                  <i class="far fa-clock ms-3 me-2"></i>5 menit membaca
+                </div>
+              </div>
+
+              <img
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                alt="Minyak Jelantah"
+                class="img-fluid rounded mb-4"
+                loading="lazy"
+              />
+
+              <div class="article-content">
+                <p class="lead">
+                  Minyak jelantah yang disimpan dengan benar tidak hanya menjaga
+                  kualitasnya untuk didaur ulang, tetapi juga mencegah
+                  pencemaran lingkungan. Berikut adalah panduan lengkap cara
+                  menyimpan minyak jelantah yang tepat.
+                </p>
+
+                <h3>1. Tunggu Hingga Dingin</h3>
+                <p>
+                  Jangan pernah menuang minyak jelantah panas langsung ke wadah
+                  penyimpanan. Biarkan minyak mencapai suhu ruangan terlebih
+                  dahulu untuk menghindari risiko kebakaran dan kerusakan wadah
+                  plastik.
+                </p>
+
+                <h3>2. Saring Kotoran</h3>
+                <p>
+                  Gunakan saringan atau kain katun bersih untuk menyaring sisa
+                  makanan dan partikel padat dari minyak. Ini akan memperpanjang
+                  umur simpan minyak dan memudahkan proses daur ulang.
+                </p>
+
+                <img
+                  src="https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  alt="Proses Penyaringan"
+                  class="img-fluid rounded"
+                  loading="lazy"
+                />
+
+                <h3>3. Pilih Wadah yang Tepat</h3>
+                <p>
+                  Gunakan wadah kedap udara dari bahan kaca atau plastik food
+                  grade. Hindari wadah logam karena dapat bereaksi dengan
+                  minyak. Pastikan wadah bersih dan kering sebelum digunakan.
+                </p>
+
+                <h3>4. Simpan di Tempat yang Tepat</h3>
+                <p>
+                  Simpan minyak jelantah di tempat yang sejuk, kering, dan
+                  terhindar dari sinar matahari langsung. Jauhkan dari sumber
+                  panas dan api.
+                </p>
+
+                <h3>5. Beri Label dan Tanggal</h3>
+                <p>
+                  Beri label pada wadah dengan tanggal penyimpanan. Minyak
+                  jelantah sebaiknya tidak disimpan lebih dari 1 bulan sebelum
+                  didaur ulang.
+                </p>
+
+                <div class="alert alert-info mt-4">
+                  <i class="fas fa-lightbulb me-2"></i>
+                  <strong>Tips:</strong> Jangan mencampur minyak jelantah dari
+                  jenis yang berbeda (misalnya minyak sawit dengan minyak
+                  zaitun) karena dapat mempersulit proses daur ulang.
+                </div>
+
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                  <span class="me-3">Bagikan:</span>
+                  <a href="#" class="share-btn facebook"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" class="share-btn twitter"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a href="#" class="share-btn linkedin"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a href="#" class="share-btn whatsapp"
+                    ><i class="fab fa-whatsapp"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+
+            <hr class="my-5" />
+
+            <!-- Artikel Lainnya -->
+            <h3 class="mb-4">Artikel Lainnya</h3>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="card article-card h-100">
+                  <img
+                    src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="card-img-top article-img"
+                    alt="Manfaat Daur Ulang"
+                    loading="lazy"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-success mb-2">Lingkungan</span>
+                    <h5 class="card-title">
+                      Manfaat Daur Ulang Minyak Jelantah untuk Lingkungan
+                    </h5>
+                    <p class="card-text">
+                      Temukan bagaimana daur ulang minyak jelantah dapat
+                      mengurangi polusi dan mendukung ekonomi sirkular.
+                    </p>
+                    <a href="#" class="btn btn-outline-primary btn-sm"
+                      >Baca Selengkapnya</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="card article-card h-100">
+                  <img
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="card-img-top article-img"
+                    alt="Peluang Bisnis"
+                    loading="lazy"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-warning mb-2">Bisnis</span>
+                    <h5 class="card-title">
+                      Peluang Bisnis dari Minyak Jelantah
+                    </h5>
+                    <p class="card-text">
+                      Jelajahi peluang ekonomi yang dapat dihasilkan dari
+                      pengelolaan minyak jelantah yang tepat.
+                    </p>
+                    <a href="#" class="btn btn-outline-primary btn-sm"
+                      >Baca Selengkapnya</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="col-lg-4">
+            <!-- Widget Pencarian -->
+            <div class="sidebar-widget fade-in">
+              <h4 class="widget-title">Pencarian</h4>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Cari artikel..."
+                />
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Widget Kategori -->
+            <div class="sidebar-widget fade-in">
+              <h4 class="widget-title">Kategori</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="#"
+                    class="text-decoration-none text-dark d-block py-2 border-bottom"
+                    >Tips & Panduan (8)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-decoration-none text-dark d-block py-2 border-bottom"
+                    >Lingkungan (12)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-decoration-none text-dark d-block py-2 border-bottom"
+                    >Bisnis (5)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-decoration-none text-dark d-block py-2 border-bottom"
+                    >Teknologi (7)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-decoration-none text-dark d-block py-2"
+                    >Berita (10)</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Widget Artikel Populer -->
+            <div class="sidebar-widget fade-in">
+              <h4 class="widget-title">Artikel Populer</h4>
+              <div class="popular-article">
+                <img
+                  src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                  alt="Artikel Populer 1"
+                />
+                <div>
+                  <h6>Cara Menyimpan Minyak Jelantah yang Benar</h6>
+                  <small class="text-muted">15 Mar 2024</small>
+                </div>
+              </div>
+              <div class="popular-article">
+                <img
+                  src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                  alt="Artikel Populer 2"
+                />
+                <div>
+                  <h6>Manfaat Daur Ulang untuk Lingkungan</h6>
+                  <small class="text-muted">10 Mar 2024</small>
+                </div>
+              </div>
+              <div class="popular-article">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                  alt="Artikel Populer 3"
+                />
+                <div>
+                  <h6>Peluang Bisnis Minyak Jelantah</h6>
+                  <small class="text-muted">5 Mar 2024</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Widget Tags -->
+            <div class="sidebar-widget fade-in">
+              <h4 class="widget-title">Tags</h4>
+              <div>
+                <a href="#" class="tag">#daurulang</a>
+                <a href="#" class="tag">#minyakjelantah</a>
+                <a href="#" class="tag">#lingkungan</a>
+                <a href="#" class="tag">#biodiesel</a>
+                <a href="#" class="tag">#ekonomisirkular</a>
+                <a href="#" class="tag">#ramahlingkungan</a>
+                <a href="#" class="tag">#tips</a>
+                <a href="#" class="tag">#bisnishijau</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h4 class="mb-4 text-warning">EcoOil</h4>
+            <p>
+              Perusahaan pengelolaan minyak jelantah terdepan yang berkomitmen
+              untuk menciptakan lingkungan yang lebih bersih dan berkelanjutan.
+            </p>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h5 class="mb-4 text-warning">Tautan Cepat</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="index.html#about">Tentang Kami</a></li>
+              <li><a href="index.html#services">Layanan</a></li>
+              <li><a href="index.html#team">Tim Kami</a></li>
+              <li><a href="artikel.html">Artikel</a></li>
+              <li><a href="index.html#contact">Kontak</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="mb-4 text-warning">Layanan</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Pengumpulan Minyak Jelantah</a></li>
+              <li><a href="#">Pengolahan & Daur Ulang</a></li>
+              <li><a href="#">Konsultasi Pengelolaan Limbah</a></li>
+              <li><a href="#">Program Kemitraan</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h5 class="mb-4 text-warning">Terhubung dengan Kami</h5>
+            <div class="d-flex">
+              <a href="#" class="btn btn-outline-light me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="btn btn-outline-light me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="btn btn-outline-light me-2"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="btn btn-outline-light"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-5 bg-light" />
+        <div class="text-center">
+          <p class="mb-0">&copy; 2023 EcoOil. Semua Hak Dilindungi.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Kembali ke atas">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Back to top button visibility
+      window.addEventListener("scroll", function () {
+        const backToTopButton = document.querySelector(".back-to-top");
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add("show");
+        } else {
+          backToTopButton.classList.remove("show");
+        }
+      });
+
+      // Scroll animations
+      function checkScroll() {
+        const elements = document.querySelectorAll(".fade-in");
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementBottom = element.getBoundingClientRect().bottom;
+          const isVisible =
+            elementTop < window.innerHeight - 100 && elementBottom > 0;
+
+          if (isVisible) {
+            element.classList.add("active");
+          }
+        });
+      }
+
+      // Initialize scroll animations
+      window.addEventListener("scroll", checkScroll);
+      window.addEventListener("load", checkScroll);
+    </script>
+  </body>
+</html>

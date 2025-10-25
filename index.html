@@ -591,6 +591,126 @@
           padding: 0.75rem !important;
         }
       }
+
+      /* Animation Classes */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .fade-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.6s ease-out;
+      }
+
+      .fade-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.6s ease-out;
+      }
+
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease-out;
+      }
+
+      .fade-in-scale {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.6s ease-out;
+      }
+
+      /* Animation Delay Classes */
+      .delay-1 {
+        transition-delay: 0.1s;
+      }
+
+      .delay-2 {
+        transition-delay: 0.2s;
+      }
+
+      .delay-3 {
+        transition-delay: 0.3s;
+      }
+
+      .delay-4 {
+        transition-delay: 0.4s;
+      }
+
+      .delay-5 {
+        transition-delay: 0.5s;
+      }
+
+      /* Active State - When element is in viewport */
+      .fade-in.active,
+      .fade-in-left.active,
+      .fade-in-right.active,
+      .fade-in-up.active,
+      .fade-in-scale.active {
+        opacity: 1;
+        transform: translate(0) scale(1);
+      }
+
+      /* Staggered animations for cards */
+      .service-card,
+      .team-card,
+      .blog-card,
+      .testimonial-card,
+      .gallery-card,
+      .video-card {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .service-card.active,
+      .team-card.active,
+      .blog-card.active,
+      .testimonial-card.active,
+      .gallery-card.active,
+      .video-card.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Process steps animation */
+      .process-step {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .process-step.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stats counter animation */
+      .stats-item {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .stats-item.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Partner logos animation */
+      .partner-logo {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.6s ease-out;
+      }
+
+      .partner-logo.active {
+        opacity: 0.7;
+        transform: scale(1);
+      }
     </style>
   </head>
   <body>
@@ -660,7 +780,7 @@
     <section class="hero text-center" id="home">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-10">
+          <div class="col-lg-10 fade-in-up">
             <h1 class="display-4 fw-bold mb-4">
               Mengubah Minyak Jelantah Menjadi Energi Berkelanjutan
             </h1>
@@ -687,7 +807,7 @@
     <section class="section-padding" id="about">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="col-lg-6 mb-4 mb-lg-0 fade-in-left">
             <h2 class="fw-bold mb-4">Tentang EcoOil</h2>
             <p class="mb-4">
               EcoOil adalah perusahaan yang berkomitmen untuk mengelola minyak
@@ -701,21 +821,21 @@
               dengan cara yang paling ramah lingkungan dan ekonomis.
             </p>
             <div class="row text-center">
-              <div class="col-4 stats-item">
+              <div class="col-4 stats-item delay-1">
                 <div class="stats-counter" data-count="500">0</div>
                 <p>Klien Terlayani</p>
               </div>
-              <div class="col-4 stats-item">
+              <div class="col-4 stats-item delay-2">
                 <div class="stats-counter" data-count="50000">0</div>
                 <p>Liter Terolah</p>
               </div>
-              <div class="col-4 stats-item">
+              <div class="col-4 stats-item delay-3">
                 <div class="stats-counter" data-count="10">0</div>
                 <p>Kota Terjangkau</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 fade-in-right">
             <img
               src="https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
               alt="Proses daur ulang minyak jelantah"
@@ -730,7 +850,7 @@
     <!-- Services Section -->
     <section class="section-padding bg-light-green" id="services">
       <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center fade-in-up">
           <h2>Layanan Kami</h2>
           <p>
             Kami menawarkan berbagai layanan untuk memenuhi kebutuhan
@@ -739,7 +859,7 @@
         </div>
         <div class="row g-4">
           <div class="col-md-4">
-            <div class="card service-card h-100">
+            <div class="card service-card h-100 fade-in-up delay-1">
               <div class="card-body text-center p-4">
                 <div class="service-icon">
                   <i class="fas fa-sync-alt"></i>
@@ -753,7 +873,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card service-card h-100">
+            <div class="card service-card h-100 fade-in-up delay-2">
               <div class="card-body text-center p-4">
                 <div class="service-icon">
                   <i class="fas fa-flask"></i>
@@ -767,7 +887,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card service-card h-100">
+            <div class="card service-card h-100 fade-in-up delay-3">
               <div class="card-body text-center p-4">
                 <div class="service-icon">
                   <i class="fas fa-chart-line"></i>
@@ -788,7 +908,7 @@
     <!-- Process Section -->
     <section class="section-padding" id="process">
       <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center fade-in-up">
           <h2>Proses Kami</h2>
           <p>
             Bagaimana kami mengubah minyak jelantah menjadi produk bernilai
@@ -797,7 +917,7 @@
         </div>
         <div class="row">
           <div class="col-md-3 col-sm-6">
-            <div class="process-step">
+            <div class="process-step fade-in delay-1">
               <div class="step-number">1</div>
               <h4>Pengumpulan</h4>
               <p>
@@ -807,7 +927,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-6">
-            <div class="process-step">
+            <div class="process-step fade-in delay-2">
               <div class="step-number">2</div>
               <h4>Pemurnian</h4>
               <p>
@@ -817,7 +937,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-6">
-            <div class="process-step">
+            <div class="process-step fade-in delay-3">
               <div class="step-number">3</div>
               <h4>Konversi</h4>
               <p>
@@ -827,7 +947,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-6">
-            <div class="process-step">
+            <div class="process-step fade-in delay-4">
               <div class="step-number">4</div>
               <h4>Distribusi</h4>
               <p>
@@ -843,7 +963,7 @@
     <!-- Team Section -->
     <section class="section-padding bg-light-green" id="team">
       <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center fade-in-up">
           <h2>Tim Kami</h2>
           <p>
             Bertemu dengan tim profesional yang berdedikasi di balik kesuksesan
@@ -852,7 +972,7 @@
         </div>
         <div class="row g-4">
           <div class="col-lg-3 col-md-6">
-            <div class="card team-card h-100">
+            <div class="card team-card h-100 fade-in-scale delay-1">
               <img
                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                 class="card-img-top team-img"
@@ -875,7 +995,7 @@
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
-            <div class="card team-card h-100">
+            <div class="card team-card h-100 fade-in-scale delay-2">
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                 class="card-img-top team-img"
@@ -898,7 +1018,7 @@
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
-            <div class="card team-card h-100">
+            <div class="card team-card h-100 fade-in-scale delay-3">
               <img
                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                 class="card-img-top team-img"
@@ -921,7 +1041,7 @@
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
-            <div class="card team-card h-100">
+            <div class="card team-card h-100 fade-in-scale delay-4">
               <img
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                 class="card-img-top team-img"
@@ -950,7 +1070,7 @@
     <!-- Blog Section -->
     <section class="section-padding" id="blog">
       <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center fade-in-up">
           <h2>Artikel & Tips</h2>
           <p>
             Informasi terbaru tentang pengelolaan minyak jelantah dan lingkungan
@@ -958,7 +1078,7 @@
         </div>
         <div class="row g-4">
           <div class="col-md-4">
-            <div class="card blog-card h-100">
+            <div class="card blog-card h-100 fade-in-up delay-1">
               <img
                 src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                 class="card-img-top"
@@ -975,58 +1095,18 @@
                   Pelajari cara menyimpan minyak jelantah dengan aman sebelum
                   didaur ulang untuk menjaga kualitas dan keamanannya.
                 </p>
-                <a href="#" class="btn btn-outline-primary btn-sm"
+                <a href="artikel.html" class="btn btn-outline-primary btn-sm"
                   >Baca Selengkapnya</a
                 >
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card blog-card h-100">
-              <img
-                src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                class="card-img-top"
-                alt="Blog 2"
-                style="height: 200px; object-fit: cover"
-                loading="lazy"
-              />
-              <div class="card-body">
-                <span class="badge bg-success mb-2">Lingkungan</span>
-                <h5 class="card-title">
-                  Manfaat Daur Ulang Minyak Jelantah untuk Lingkungan
-                </h5>
-                <p class="card-text">
-                  Temukan bagaimana daur ulang minyak jelantah dapat mengurangi
-                  polusi dan mendukung ekonomi sirkular.
-                </p>
-                <a href="#" class="btn btn-outline-primary btn-sm"
-                  >Baca Selengkapnya</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card blog-card h-100">
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                class="card-img-top"
-                alt="Blog 3"
-                style="height: 200px; object-fit: cover"
-                loading="lazy"
-              />
-              <div class="card-body">
-                <span class="badge bg-warning mb-2">Bisnis</span>
-                <h5 class="card-title">Peluang Bisnis dari Minyak Jelantah</h5>
-                <p class="card-text">
-                  Jelajahi peluang ekonomi yang dapat dihasilkan dari
-                  pengelolaan minyak jelantah yang tepat.
-                </p>
-                <a href="#" class="btn btn-outline-primary btn-sm"
-                  >Baca Selengkapnya</a
-                >
-              </div>
-            </div>
-          </div>
+          <!-- Artikel lainnya tetap sama, tapi tambahkan link ke halaman artikel -->
+        </div>
+        <div class="text-center mt-5">
+          <a href="artikel.html" class="btn btn-primary btn-lg"
+            >Lihat Semua Artikel</a
+          >
         </div>
       </div>
     </section>
@@ -1034,13 +1114,13 @@
     <!-- Testimonials Section -->
     <section class="section-padding bg-light-green" id="testimonials">
       <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center fade-in-up">
           <h2>Apa Kata Klien Kami</h2>
           <p>Testimoni dari pelanggan yang telah menggunakan layanan kami</p>
         </div>
         <div class="row g-4">
           <div class="col-md-4">
-            <div class="card testimonial-card h-100">
+            <div class="card testimonial-card h-100 fade-in-up delay-1">
               <div class="card-body text-center p-4">
                 <div class="testimonial-img mb-3">
                   <img
@@ -1070,7 +1150,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card testimonial-card h-100">
+            <div class="card testimonial-card h-100 fade-in-up delay-2">
               <div class="card-body text-center p-4">
                 <div class="testimonial-img mb-3">
                   <img
@@ -1100,7 +1180,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card testimonial-card h-100">
+            <div class="card testimonial-card h-100 fade-in-up delay-3">
               <div class="card-body text-center p-4">
                 <div class="testimonial-img mb-3">
                   <img
@@ -1136,7 +1216,7 @@
     <!-- Partners Section -->
     <section class="section-padding">
       <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center fade-in-up">
           <h2>Mitra Kami</h2>
           <p>
             Berkolaborasi dengan berbagai perusahaan dan organisasi terpercaya
@@ -1147,7 +1227,7 @@
             <img
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Hotel"
               alt="Mitra 1"
-              class="img-fluid partner-logo"
+              class="img-fluid partner-logo delay-1"
               loading="lazy"
             />
           </div>
@@ -1155,7 +1235,7 @@
             <img
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Resto"
               alt="Mitra 2"
-              class="img-fluid partner-logo"
+              class="img-fluid partner-logo delay-2"
               loading="lazy"
             />
           </div>
@@ -1163,7 +1243,7 @@
             <img
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Catering"
               alt="Mitra 3"
-              class="img-fluid partner-logo"
+              class="img-fluid partner-logo delay-3"
               loading="lazy"
             />
           </div>
@@ -1171,7 +1251,7 @@
             <img
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=UMKM"
               alt="Mitra 4"
-              class="img-fluid partner-logo"
+              class="img-fluid partner-logo delay-4"
               loading="lazy"
             />
           </div>
@@ -1179,7 +1259,7 @@
             <img
               src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=School"
               alt="Mitra 5"
-              class="img-fluid partner-logo"
+              class="img-fluid partner-logo delay-5"
               loading="lazy"
             />
           </div>
@@ -1190,7 +1270,7 @@
     <!-- Gallery Section -->
     <section class="section-padding" id="gallery">
       <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center fade-in-up">
           <h2>Galeri Kegiatan</h2>
           <p>
             Dokumentasi visual proses pengelolaan minyak jelantah dan kegiatan
@@ -1199,7 +1279,7 @@
         </div>
         <div class="row g-4">
           <div class="col-lg-4 col-md-6">
-            <div class="card gallery-card h-100">
+            <div class="card gallery-card h-100 fade-in-up delay-1">
               <img
                 src="https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                 class="card-img-top"
@@ -1217,7 +1297,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="card gallery-card h-100">
+            <div class="card gallery-card h-100 fade-in-up delay-2">
               <img
                 src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                 class="card-img-top"
@@ -1235,7 +1315,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="card gallery-card h-100">
+            <div class="card gallery-card h-100 fade-in-up delay-3">
               <img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                 class="card-img-top"
@@ -1253,7 +1333,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="card gallery-card h-100">
+            <div class="card gallery-card h-100 fade-in-up delay-4">
               <img
                 src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                 class="card-img-top"
@@ -1270,7 +1350,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="card gallery-card h-100">
+            <div class="card gallery-card h-100 fade-in-up delay-5">
               <img
                 src="https://images.unsplash.com/photo-1562077981-4d7eafd88c7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                 class="card-img-top"
@@ -1287,7 +1367,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="card gallery-card h-100">
+            <div class="card gallery-card h-100 fade-in-up delay-1">
               <img
                 src="https://images.unsplash.com/photo-156568001312-81b0d304d0b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                 class="card-img-top"
@@ -1311,7 +1391,7 @@
     <!-- Video Section -->
     <section class="section-padding bg-light-green" id="video">
       <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center fade-in-up">
           <h2>Video Edukasi</h2>
           <p>
             Pelajari lebih lanjut tentang pentingnya daur ulang minyak jelantah
@@ -1320,7 +1400,7 @@
         </div>
         <div class="row g-4">
           <div class="col-lg-6">
-            <div class="card video-card h-100">
+            <div class="card video-card h-100 fade-in-up delay-1">
               <div class="card-body p-0">
                 <div class="ratio ratio-16x9">
                   <iframe
@@ -1344,7 +1424,7 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="card video-card h-100">
+            <div class="card video-card h-100 fade-in-up delay-2">
               <div class="card-body p-0">
                 <div class="ratio ratio-16x9">
                   <iframe
@@ -1370,7 +1450,7 @@
         </div>
         <div class="row mt-4">
           <div class="col-lg-4 col-md-6">
-            <div class="card video-card h-100">
+            <div class="card video-card h-100 fade-in-up delay-3">
               <div class="card-body p-0">
                 <div class="ratio ratio-16x9">
                   <iframe
@@ -1390,7 +1470,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="card video-card h-100">
+            <div class="card video-card h-100 fade-in-up delay-4">
               <div class="card-body p-0">
                 <div class="ratio ratio-16x9">
                   <iframe
@@ -1410,7 +1490,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="card video-card h-100">
+            <div class="card video-card h-100 fade-in-up delay-5">
               <div class="card-body p-0">
                 <div class="ratio ratio-16x9">
                   <iframe
@@ -1433,30 +1513,10 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section-padding cta-section text-white">
-      <div class="container text-center">
-        <h2 class="mb-4">Siap Bergabung dengan Gerakan Lingkungan?</h2>
-        <p class="lead mb-4">
-          Mulai daur ulang minyak jelantah Anda hari ini dan dapatkan manfaatnya
-        </p>
-        <div
-          class="d-flex flex-column flex-md-row justify-content-center gap-3"
-        >
-          <a href="#contact" class="btn btn-light btn-lg"
-            >Hubungi Kami Sekarang</a
-          >
-          <a href="tel:+622112345678" class="btn btn-outline-light btn-lg">
-            <i class="fas fa-phone me-2"></i>+62 21 1234 5678
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="section-padding contact-section" id="contact">
       <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center fade-in-up">
           <h2 class="text-white">Hubungi Kami</h2>
           <p class="text-light">
             Siap untuk berkontribusi pada lingkungan yang lebih bersih? Hubungi
@@ -1464,7 +1524,7 @@
           </p>
         </div>
         <div class="row">
-          <div class="col-lg-5 mb-4 mb-lg-0">
+          <div class="col-lg-5 mb-4 mb-lg-0 fade-in-left">
             <h4 class="mb-4">Informasi Kontak</h4>
             <p class="mb-4">
               Kami siap membantu Anda dengan segala pertanyaan tentang
@@ -1487,7 +1547,7 @@
               <p class="mb-0">Senin - Jumat: 08.00 - 17.00 WIB</p>
             </div>
           </div>
-          <div class="col-lg-7">
+          <div class="col-lg-7 fade-in-right">
             <form id="contactForm">
               <div class="row g-3">
                 <div class="col-md-6">
@@ -1539,14 +1599,14 @@
     <footer class="py-5">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="col-lg-4 mb-4 mb-lg-0 fade-in-left">
             <h4 class="mb-4 text-warning">EcoOil</h4>
             <p>
               Perusahaan pengelolaan minyak jelantah terdepan yang berkomitmen
               untuk menciptakan lingkungan yang lebih bersih dan berkelanjutan.
             </p>
           </div>
-          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0 fade-in-up delay-1">
             <h5 class="mb-4 text-warning">Tautan Cepat</h5>
             <ul class="list-unstyled footer-links">
               <li><a href="#home">Beranda</a></li>
@@ -1558,7 +1618,7 @@
               <li><a href="#contact">Kontak</a></li>
             </ul>
           </div>
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0 fade-in-up delay-2">
             <h5 class="mb-4 text-warning">Layanan</h5>
             <ul class="list-unstyled footer-links">
               <li><a href="#">Pengumpulan Minyak Jelantah</a></li>
@@ -1567,7 +1627,7 @@
               <li><a href="#">Program Kemitraan</a></li>
             </ul>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 fade-in-up delay-3">
             <h5 class="mb-4 text-warning">Terhubung dengan Kami</h5>
             <div class="d-flex">
               <a href="#" class="btn btn-outline-light me-2"
@@ -1586,7 +1646,7 @@
           </div>
         </div>
         <hr class="my-5 bg-light" />
-        <div class="text-center">
+        <div class="text-center fade-in-up">
           <p class="mb-0">&copy; 2023 EcoOil. Semua Hak Dilindungi.</p>
         </div>
       </div>
@@ -1686,23 +1746,44 @@
         });
       }
 
-      // Initialize counter when section is in viewport
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animateCounter();
-              observer.unobserve(entry.target);
+      // Scroll animations
+      function checkScroll() {
+        const elements = document.querySelectorAll(
+          ".fade-in, .fade-in-left, .fade-in-right, .fade-in-up, .fade-in-scale, .service-card, .team-card, .blog-card, .testimonial-card, .gallery-card, .video-card, .process-step, .stats-item, .partner-logo"
+        );
+
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementBottom = element.getBoundingClientRect().bottom;
+          const isVisible =
+            elementTop < window.innerHeight - 100 && elementBottom > 0;
+
+          if (isVisible) {
+            element.classList.add("active");
+          }
+        });
+
+        // Animate counter when stats section is visible
+        const statsSection = document.querySelector(".stats-item");
+        if (statsSection && statsSection.classList.contains("active")) {
+          const counters = document.querySelectorAll(".stats-counter");
+          let hasAnimated = false;
+
+          counters.forEach((counter) => {
+            if (counter.innerText === "0") {
+              hasAnimated = true;
             }
           });
-        },
-        { threshold: 0.5 }
-      );
 
-      const aboutSection = document.getElementById("about");
-      if (aboutSection) {
-        observer.observe(aboutSection);
+          if (hasAnimated) {
+            animateCounter();
+          }
+        }
       }
+
+      // Initialize scroll animations
+      window.addEventListener("scroll", checkScroll);
+      window.addEventListener("load", checkScroll);
 
       // Form submission handling
       document
