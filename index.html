@@ -44,27 +44,54 @@
         overflow-x: hidden;
       }
 
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Navbar Transparent on Scroll */
+      .navbar.scrolled {
+        background-color: rgba(255, 255, 255, 0.7) !important;
+        backdrop-filter: blur(10px);
+      }
+
+      /* Brand Section */
       .navbar-brand {
+        display: flex;
+        align-items: center;
         font-weight: bold;
         color: var(--primary) !important;
         font-size: 1.5rem;
+        text-decoration: none;
       }
 
+      /* Logo Image */
+      .navbar-brand img {
+        width: 55px;
+        height: 55px;
+        object-fit: contain;
+        margin-right: 10px;
+      }
+
+      /* Navbar Toggler (mobile) */
       .navbar-toggler {
         border: none;
-        padding: 4px 8px;
+        padding: 6px 10px;
       }
 
       .navbar-toggler:focus {
         box-shadow: none;
       }
 
+      /* Menu Link */
       .navbar-nav .nav-link {
         color: var(--dark) !important;
         font-weight: 500;
-        margin: 0 5px;
+        margin: 0 6px;
         padding: 8px 12px !important;
-        border-radius: 5px;
+        border-radius: 6px;
         transition: all 0.3s ease;
       }
 
@@ -74,12 +101,14 @@
         background-color: rgba(46, 125, 50, 0.1);
       }
 
+      /* Button Primary */
       .btn-primary {
         background-color: var(--primary);
         border-color: var(--primary);
         padding: 10px 20px;
         font-weight: 600;
         border-radius: 8px;
+        transition: all 0.3s ease;
       }
 
       .btn-primary:hover {
@@ -89,20 +118,22 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
+      /* Button Outline */
       .btn-outline-primary {
         color: var(--primary);
         border-color: var(--primary);
         padding: 10px 20px;
         font-weight: 600;
         border-radius: 8px;
+        transition: all 0.3s ease;
       }
 
       .btn-outline-primary:hover {
         background-color: var(--primary);
         border-color: var(--primary);
+        color: #fff;
         transform: translateY(-2px);
       }
-
       .hero {
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
           url("https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
@@ -201,16 +232,48 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
-      .team-card {
+      /* Team Carousel Styles */
+      .team-carousel {
+        position: relative;
+        padding: 20px 0;
+      }
+
+      .team-carousel .carousel-inner {
+        padding: 20px 0;
+      }
+
+      .team-carousel .carousel-item {
+        transition: transform 0.6s ease-in-out;
+      }
+
+      .team-carousel .carousel-item.active {
+        display: flex;
+      }
+
+      .team-carousel .carousel-item-next,
+      .team-carousel .carousel-item-prev {
+        display: flex;
+      }
+
+      .team-carousel .team-card {
         border: none;
         border-radius: 12px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
         overflow: hidden;
         height: 100%;
+        margin: 0 10px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
       }
 
-      .team-card:hover {
+      .team-carousel .team-card.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .team-carousel .team-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
@@ -244,6 +307,62 @@
       .team-social a:hover {
         background-color: var(--primary-dark);
         transform: scale(1.1);
+      }
+
+      /* Carousel Controls */
+      .team-carousel .carousel-control-prev,
+      .team-carousel .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.8;
+        transition: all 0.3s ease;
+      }
+
+      .team-carousel .carousel-control-prev {
+        left: -25px;
+      }
+
+      .team-carousel .carousel-control-next {
+        right: -25px;
+      }
+
+      .team-carousel .carousel-control-prev:hover,
+      .team-carousel .carousel-control-next:hover {
+        background-color: var(--primary-dark);
+        opacity: 1;
+      }
+
+      /* Carousel Indicators */
+      .team-carousel .carousel-indicators {
+        bottom: -50px;
+      }
+
+      .team-carousel .carousel-indicators button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        opacity: 0.5;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+      }
+
+      .team-carousel .carousel-indicators button.active {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+
+      @media (max-width: 768px) {
+        .team-carousel .carousel-control-prev {
+          left: 10px;
+        }
+        .team-carousel .carousel-control-next {
+          right: 10px;
+        }
       }
 
       .contact-section {
@@ -656,7 +775,6 @@
 
       /* Staggered animations for cards */
       .service-card,
-      .team-card,
       .blog-card,
       .testimonial-card,
       .gallery-card,
@@ -667,7 +785,6 @@
       }
 
       .service-card.active,
-      .team-card.active,
       .blog-card.active,
       .testimonial-card.active,
       .gallery-card.active,
@@ -715,14 +832,19 @@
   </head>
   <body>
     <!-- Header & Navigation -->
-    <nav
-      class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3"
-    >
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm py-3">
       <div class="container">
+        <!-- Logo + Nama -->
         <a class="navbar-brand d-flex align-items-center" href="#home">
-          <i class="fas fa-recycle me-2"></i>
-          <span>EcoOil</span>
+          <img
+            src="Gemini_Generated_Image_p63358p63358p633-removebg-preview.png"
+            alt="EcoOil Logo"
+            class="navbar-logo me-2"
+          />
+          <span class="brand-text">EcoOil</span>
         </a>
+
+        <!-- Toggle Button -->
         <button
           class="navbar-toggler"
           type="button"
@@ -732,10 +854,10 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Menu -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -970,98 +1092,293 @@
             EcoOil.
           </p>
         </div>
-        <div class="row g-4">
-          <div class="col-lg-3 col-md-6">
-            <div class="card team-card h-100 fade-in-scale delay-1">
-              <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                class="card-img-top team-img"
-                alt="Direktur Utama"
-                loading="lazy"
-              />
-              <div class="card-body text-center">
-                <h5 class="card-title">Ahmad Wijaya</h5>
-                <p class="card-text text-primary">Direktur Utama</p>
-                <p class="card-text">
-                  Memimpin strategi perusahaan dengan pengalaman 15 tahun di
-                  industri energi terbarukan.
-                </p>
-                <div class="team-social">
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
+
+        <div class="team-carousel">
+          <div
+            id="teamCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            data-bs-interval="4000"
+          >
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#teamCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#teamCarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#teamCarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+
+            <!-- Carousel Items -->
+            <div class="carousel-inner">
+              <!-- Slide 1 -->
+              <div class="carousel-item active">
+                <div class="row justify-content-center">
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card team-card h-100 fade-in-scale delay-1">
+                      <img
+                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        class="card-img-top team-img"
+                        alt="Direktur Utama"
+                        loading="lazy"
+                      />
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Ahmad Wijaya</h5>
+                        <p class="card-text text-primary">Direktur Utama</p>
+                        <p class="card-text">
+                          Memimpin strategi perusahaan dengan pengalaman 15
+                          tahun di industri energi terbarukan.
+                        </p>
+                        <div class="team-social">
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card team-card h-100 fade-in-scale delay-2">
+                      <img
+                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        class="card-img-top team-img"
+                        alt="Kepala Operasional"
+                        loading="lazy"
+                      />
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Sari Dewi</h5>
+                        <p class="card-text text-primary">Kepala Operasional</p>
+                        <p class="card-text">
+                          Mengawasi seluruh proses operasional dengan fokus pada
+                          efisiensi dan kualitas.
+                        </p>
+                        <div class="team-social">
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card team-card h-100 fade-in-scale delay-3">
+                      <img
+                        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        class="card-img-top team-img"
+                        alt="Manajer Teknologi"
+                        loading="lazy"
+                      />
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Rina Kartika</h5>
+                        <p class="card-text text-primary">Manajer Teknologi</p>
+                        <p class="card-text">
+                          Ahli dalam teknologi pengolahan limbah dengan
+                          spesialisasi dalam konversi energi.
+                        </p>
+                        <div class="team-social">
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <div class="row justify-content-center">
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card team-card h-100 fade-in-scale delay-1">
+                      <img
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        class="card-img-top team-img"
+                        alt="Koordinator Lapangan"
+                        loading="lazy"
+                      />
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Budi Santoso</h5>
+                        <p class="card-text text-primary">
+                          Koordinator Lapangan
+                        </p>
+                        <p class="card-text">
+                          Memastikan operasional pengumpulan minyak jelantah
+                          berjalan lancar di seluruh area.
+                        </p>
+                        <div class="team-social">
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card team-card h-100 fade-in-scale delay-2">
+                      <img
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        class="card-img-top team-img"
+                        alt="Manajer Pemasaran"
+                        loading="lazy"
+                      />
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Dian Pratama</h5>
+                        <p class="card-text text-primary">Manajer Pemasaran</p>
+                        <p class="card-text">
+                          Mengembangkan strategi pemasaran dan membangun
+                          hubungan dengan klien dan mitra.
+                        </p>
+                        <div class="team-social">
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card team-card h-100 fade-in-scale delay-3">
+                      <img
+                        src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        class="card-img-top team-img"
+                        alt="Ahli Kimia"
+                        loading="lazy"
+                      />
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Maya Sari</h5>
+                        <p class="card-text text-primary">Ahli Kimia</p>
+                        <p class="card-text">
+                          Spesialis dalam proses kimia untuk mengubah minyak
+                          jelantah menjadi produk bernilai tinggi.
+                        </p>
+                        <div class="team-social">
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="carousel-item">
+                <div class="row justify-content-center">
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card team-card h-100 fade-in-scale delay-1">
+                      <img
+                        src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        class="card-img-top team-img"
+                        alt="Koordinator CSR"
+                        loading="lazy"
+                      />
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Rizki Ananda</h5>
+                        <p class="card-text text-primary">Koordinator CSR</p>
+                        <p class="card-text">
+                          Mengelola program tanggung jawab sosial perusahaan dan
+                          edukasi masyarakat.
+                        </p>
+                        <div class="team-social">
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card team-card h-100 fade-in-scale delay-2">
+                      <img
+                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        class="card-img-top team-img"
+                        alt="Analis Data"
+                        loading="lazy"
+                      />
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Fajar Nugroho</h5>
+                        <p class="card-text text-primary">Analis Data</p>
+                        <p class="card-text">
+                          Menganalisis data operasional dan kinerja untuk
+                          pengambilan keputusan strategis.
+                        </p>
+                        <div class="team-social">
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card team-card h-100 fade-in-scale delay-3">
+                      <img
+                        src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        class="card-img-top team-img"
+                        alt="Spesialis Logistik"
+                        loading="lazy"
+                      />
+                      <div class="card-body text-center">
+                        <h5 class="card-title">Hendra Setiawan</h5>
+                        <p class="card-text text-primary">Spesialis Logistik</p>
+                        <p class="card-text">
+                          Mengoptimalkan rantai pasok dan distribusi produk daur
+                          ulang.
+                        </p>
+                        <div class="team-social">
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="card team-card h-100 fade-in-scale delay-2">
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                class="card-img-top team-img"
-                alt="Kepala Operasional"
-                loading="lazy"
-              />
-              <div class="card-body text-center">
-                <h5 class="card-title">Sari Dewi</h5>
-                <p class="card-text text-primary">Kepala Operasional</p>
-                <p class="card-text">
-                  Mengawasi seluruh proses operasional dengan fokus pada
-                  efisiensi dan kualitas.
-                </p>
-                <div class="team-social">
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="card team-card h-100 fade-in-scale delay-3">
-              <img
-                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                class="card-img-top team-img"
-                alt="Manajer Teknologi"
-                loading="lazy"
-              />
-              <div class="card-body text-center">
-                <h5 class="card-title">Rina Kartika</h5>
-                <p class="card-text text-primary">Manajer Teknologi</p>
-                <p class="card-text">
-                  Ahli dalam teknologi pengolahan limbah dengan spesialisasi
-                  dalam konversi energi.
-                </p>
-                <div class="team-social">
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="card team-card h-100 fade-in-scale delay-4">
-              <img
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                class="card-img-top team-img"
-                alt="Koordinator Lapangan"
-                loading="lazy"
-              />
-              <div class="card-body text-center">
-                <h5 class="card-title">Budi Santoso</h5>
-                <p class="card-text text-primary">Koordinator Lapangan</p>
-                <p class="card-text">
-                  Memastikan operasional pengumpulan minyak jelantah berjalan
-                  lancar di seluruh area.
-                </p>
-                <div class="team-social">
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-              </div>
-            </div>
+
+            <!-- Controls -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#teamCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#teamCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>
@@ -1225,7 +1542,7 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
             <img
-              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Hotel"
+              src="bri.png"
               alt="Mitra 1"
               class="img-fluid partner-logo delay-1"
               loading="lazy"
@@ -1233,7 +1550,7 @@
           </div>
           <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
             <img
-              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Resto"
+              src="bni.png"
               alt="Mitra 2"
               class="img-fluid partner-logo delay-2"
               loading="lazy"
@@ -1241,7 +1558,7 @@
           </div>
           <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
             <img
-              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=Catering"
+              src="ml.png"
               alt="Mitra 3"
               class="img-fluid partner-logo delay-3"
               loading="lazy"
@@ -1249,7 +1566,7 @@
           </div>
           <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
             <img
-              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=UMKM"
+              src="mc.png"
               alt="Mitra 4"
               class="img-fluid partner-logo delay-4"
               loading="lazy"
@@ -1696,8 +2013,17 @@
         });
       });
 
-      // Navbar active state update on scroll
+      // Navbar transparency on scroll
       window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+
+        // Navbar active state update on scroll
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
@@ -1749,7 +2075,7 @@
       // Scroll animations
       function checkScroll() {
         const elements = document.querySelectorAll(
-          ".fade-in, .fade-in-left, .fade-in-right, .fade-in-up, .fade-in-scale, .service-card, .team-card, .blog-card, .testimonial-card, .gallery-card, .video-card, .process-step, .stats-item, .partner-logo"
+          ".fade-in, .fade-in-left, .fade-in-right, .fade-in-up, .fade-in-scale, .service-card, .blog-card, .testimonial-card, .gallery-card, .video-card, .process-step, .stats-item, .partner-logo"
         );
 
         elements.forEach((element) => {
