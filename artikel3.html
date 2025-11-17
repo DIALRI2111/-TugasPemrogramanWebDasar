@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="EcoOil Raih Penghargaan Lingkungan - Kabar gembira tentang pencapaian EcoOil dalam mendapatkan penghargaan nasional atas kontribusi pelestarian lingkungan."
+      content="Eco Jelantah Raih Penghargaan Lingkungan - Kabar gembira tentang pencapaian EcoOil dalam mendapatkan penghargaan nasional atas kontribusi pelestarian lingkungan."
     />
     <meta
       name="keywords"
       content="EcoOil, penghargaan lingkungan, prestasi, berita, pelestarian lingkungan, daur ulang"
     />
-    <title>EcoOil Raih Penghargaan Lingkungan - EcoOil</title>
+    <title>Eco Jelantah Raih Penghargaan Lingkungan - EcoOil</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -515,22 +515,63 @@
         color: var(--dark-text-primary);
       }
 
+      /* Enhanced Stat Box Styles with Animations */
       .stat-box {
         background-color: white;
         border-radius: 8px;
         padding: 15px;
         margin-bottom: 15px;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
       }
 
       [data-theme="dark"] .stat-box {
         background-color: #2a2a2a;
       }
 
+      .stat-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(46, 125, 50, 0.05) 0%,
+          rgba(76, 175, 80, 0.1) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+      }
+
+      [data-theme="dark"] .stat-box::before {
+        background: linear-gradient(
+          135deg,
+          rgba(77, 171, 247, 0.05) 0%,
+          rgba(77, 171, 247, 0.1) 100%
+        );
+      }
+
+      .stat-box:hover::before {
+        opacity: 1;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
       .stat-number {
         font-size: 2rem;
         font-weight: bold;
         color: var(--primary);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
       }
 
       [data-theme="dark"] .stat-number {
@@ -540,10 +581,157 @@
       .stat-label {
         font-size: 0.9rem;
         color: var(--gray);
+        position: relative;
+        z-index: 1;
       }
 
       [data-theme="dark"] .stat-label {
         color: var(--dark-text-secondary);
+      }
+
+      .stat-icon {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+      }
+
+      [data-theme="dark"] .stat-icon {
+        color: var(--dark-accent);
+      }
+
+      .stat-box:hover .stat-icon {
+        transform: scale(1.2) rotate(5deg);
+        color: var(--primary-dark);
+      }
+
+      [data-theme="dark"] .stat-box:hover .stat-icon {
+        color: var(--dark-accent);
+      }
+
+      /* Progress Bar for Stats */
+      .stat-progress {
+        height: 6px;
+        background-color: #e9ecef;
+        border-radius: 3px;
+        margin-top: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      [data-theme="dark"] .stat-progress {
+        background-color: #444;
+      }
+
+      .stat-progress-bar {
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: 3px;
+        width: 0;
+        transition: width 1.5s ease-out;
+        position: relative;
+      }
+
+      [data-theme="dark"] .stat-progress-bar {
+        background: linear-gradient(90deg, var(--dark-accent), #6cb2eb);
+      }
+
+      .stat-progress-bar::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: shimmer 2s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      /* Animated Circle for Stats */
+      .stat-circle {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 10px;
+      }
+
+      .stat-circle svg {
+        transform: rotate(-90deg);
+      }
+
+      .stat-circle-bg {
+        fill: none;
+        stroke: #e9ecef;
+        stroke-width: 5;
+      }
+
+      [data-theme="dark"] .stat-circle-bg {
+        stroke: #444;
+      }
+
+      .stat-circle-progress {
+        fill: none;
+        stroke: var(--primary);
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-dasharray: 157;
+        stroke-dashoffset: 157;
+        transition: stroke-dashoffset 1.5s ease-out;
+      }
+
+      [data-theme="dark"] .stat-circle-progress {
+        stroke: var(--dark-accent);
+      }
+
+      .stat-circle-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: var(--primary);
+      }
+
+      [data-theme="dark"] .stat-circle-text {
+        color: var(--dark-accent);
+      }
+
+      /* Animated Pulse Effect for Stats */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .stat-box.active .stat-icon {
+        animation: pulse 1s infinite;
       }
 
       footer {
@@ -659,6 +847,43 @@
         transform: translateY(0);
       }
 
+      /* Stat counter animation */
+      .stat-counter {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      .stat-counter.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Staggered animation delays */
+      .delay-1 {
+        transition-delay: 0.1s;
+      }
+
+      .delay-2 {
+        transition-delay: 0.2s;
+      }
+
+      .delay-3 {
+        transition-delay: 0.3s;
+      }
+
+      .delay-4 {
+        transition-delay: 0.4s;
+      }
+
+      .delay-5 {
+        transition-delay: 0.5s;
+      }
+
+      .delay-6 {
+        transition-delay: 0.6s;
+      }
+
       /* Mobile Navigation Improvements */
       @media (max-width: 991.98px) {
         .navbar-collapse {
@@ -703,6 +928,14 @@
         .popular-article img {
           margin-right: 0;
           margin-bottom: 10px;
+        }
+
+        .stat-box {
+          margin-bottom: 10px;
+        }
+
+        .stat-number {
+          font-size: 1.5rem;
         }
       }
     </style>
@@ -795,7 +1028,7 @@
             <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
             <li class="breadcrumb-item"><a href="artikel.html">Artikel</a></li>
             <li class="breadcrumb-item active">
-              EcoOil Raih Penghargaan Lingkungan
+              Eco Jelantah Raih Penghargaan Lingkungan
             </li>
           </ol>
         </nav>
@@ -830,7 +1063,7 @@
 
               <div class="article-content">
                 <p class="lead">
-                  Kami bangga mengumumkan bahwa EcoOil telah menerima
+                  Kami bangga mengumumkan bahwa Eco Jelantah telah menerima
                   penghargaan bergengsi "Pioneer in Environmental
                   Sustainability" dari Kementerian Lingkungan Hidup dan
                   Kehutanan. Penghargaan ini merupakan apresiasi atas dedikasi
@@ -841,8 +1074,8 @@
 
                 <h3>Penghargaan Ini Adalah Apresiasi untuk Semua Pihak</h3>
                 <p>
-                  Penghargaan ini tidak hanya menjadi milik EcoOil, tetapi juga
-                  untuk seluruh mitra, karyawan, dan masyarakat yang telah
+                  Penghargaan ini tidak hanya menjadi milik Eco Jelantah, tetapi
+                  juga untuk seluruh mitra, karyawan, dan masyarakat yang telah
                   mendukung gerakan daur ulang minyak jelantah. Ini adalah bukti
                   nyata bahwa kolaborasi adalah kunci utama dalam menciptakan
                   perubahan yang signifikan untuk pelestarian bumi kita.
@@ -865,32 +1098,128 @@
                   loading="lazy"
                 />
 
-                <!-- Infographic -->
+                <!-- Enhanced Infographic with Animations -->
                 <div class="infographic">
-                  <h4>Pencapaian EcoOil Hingga Saat Ini</h4>
+                  <h4>Pencapaian Eco Jelantah Hingga Saat Ini</h4>
                   <div class="row">
                     <div class="col-md-3 col-6">
-                      <div class="stat-box">
-                        <div class="stat-number">5</div>
+                      <div class="stat-box stat-counter delay-1">
+                        <div class="stat-circle">
+                          <svg width="60" height="60">
+                            <circle
+                              class="stat-circle-bg"
+                              cx="30"
+                              cy="30"
+                              r="25"
+                            ></circle>
+                            <circle
+                              class="stat-circle-progress"
+                              cx="30"
+                              cy="30"
+                              r="25"
+                              data-percent="50"
+                            ></circle>
+                          </svg>
+                          <div class="stat-circle-text">5</div>
+                        </div>
+                        <div class="stat-icon">
+                          <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-number" data-count="5">0</div>
                         <div class="stat-label">Tahun Konsistensi</div>
+                        <div class="stat-progress">
+                          <div class="stat-progress-bar" data-width="50%"></div>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-3 col-6">
-                      <div class="stat-box">
-                        <div class="stat-number">10J+</div>
+                      <div class="stat-box stat-counter delay-2">
+                        <div class="stat-circle">
+                          <svg width="60" height="60">
+                            <circle
+                              class="stat-circle-bg"
+                              cx="30"
+                              cy="30"
+                              r="25"
+                            ></circle>
+                            <circle
+                              class="stat-circle-progress"
+                              cx="30"
+                              cy="30"
+                              r="25"
+                              data-percent="70"
+                            ></circle>
+                          </svg>
+                          <div class="stat-circle-text">10J+</div>
+                        </div>
+                        <div class="stat-icon">
+                          <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="stat-number" data-count="10">0J+</div>
                         <div class="stat-label">Liter Minyak Didaur Ulang</div>
+                        <div class="stat-progress">
+                          <div class="stat-progress-bar" data-width="70%"></div>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-3 col-6">
-                      <div class="stat-box">
-                        <div class="stat-number">50+</div>
+                      <div class="stat-box stat-counter delay-3">
+                        <div class="stat-circle">
+                          <svg width="60" height="60">
+                            <circle
+                              class="stat-circle-bg"
+                              cx="30"
+                              cy="30"
+                              r="25"
+                            ></circle>
+                            <circle
+                              class="stat-circle-progress"
+                              cx="30"
+                              cy="30"
+                              r="25"
+                              data-percent="60"
+                            ></circle>
+                          </svg>
+                          <div class="stat-circle-text">50+</div>
+                        </div>
+                        <div class="stat-icon">
+                          <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="stat-number" data-count="50">0+</div>
                         <div class="stat-label">Mitra UMKM</div>
+                        <div class="stat-progress">
+                          <div class="stat-progress-bar" data-width="60%"></div>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-3 col-6">
-                      <div class="stat-box">
-                        <div class="stat-number">30%</div>
+                      <div class="stat-box stat-counter delay-4">
+                        <div class="stat-circle">
+                          <svg width="60" height="60">
+                            <circle
+                              class="stat-circle-bg"
+                              cx="30"
+                              cy="30"
+                              r="25"
+                            ></circle>
+                            <circle
+                              class="stat-circle-progress"
+                              cx="30"
+                              cy="30"
+                              r="25"
+                              data-percent="30"
+                            ></circle>
+                          </svg>
+                          <div class="stat-circle-text">30%</div>
+                        </div>
+                        <div class="stat-icon">
+                          <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="stat-number" data-count="30">0%</div>
                         <div class="stat-label">Penurunan Emisi CO₂</div>
+                        <div class="stat-progress">
+                          <div class="stat-progress-bar" data-width="30%"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -911,9 +1240,9 @@
                 <p>
                   Penghargaan ini bukanlah akhir dari perjalanan kami, melainkan
                   tonggak sejarah yang akan memotivasi kami untuk terus
-                  berinovasi dan berkembang. EcoOil berkomitmen untuk terus
-                  memperluas jangkauan kami, meningkatkan kapasitas produksi,
-                  dan mencari terobosan baru dalam pengelolaan limbah
+                  berinovasi dan berkembang. Eco Jelantah berkomitmen untuk
+                  terus memperluas jangkauan kami, meningkatkan kapasitas
+                  produksi, dan mencari terobosan baru dalam pengelolaan limbah
                   berkelanjutan.
                 </p>
 
@@ -1121,7 +1450,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0">
-            <h4 class="mb-4 text-warning">EcoOil</h4>
+            <h4 class="mb-4 text-warning">Eco Jelantah</h4>
             <p>
               Perusahaan pengelolaan minyak jelantah terdepan yang berkomitmen
               untuk menciptakan lingkungan yang lebih bersih dan berkelanjutan.
@@ -1167,7 +1496,7 @@
         </div>
         <hr class="my-5 bg-light" />
         <div class="text-center">
-          <p class="mb-0">&copy; 2023 EcoOil. Semua Hak Dilindungi.</p>
+          <p class="mb-0">&copy; 2023 Eco Jelantah. Semua Hak Dilindungi.</p>
         </div>
       </div>
     </footer>
@@ -1257,24 +1586,94 @@
         }
       });
 
-      // Scroll animations
-      function checkScroll() {
-        const elements = document.querySelectorAll(".fade-in");
-        elements.forEach((element) => {
-          const elementTop = element.getBoundingClientRect().top;
-          const elementBottom = element.getBoundingClientRect().bottom;
-          const isVisible =
-            elementTop < window.innerHeight - 100 && elementBottom > 0;
+      // Enhanced Animated counter for statistics
+      function animateCounter() {
+        const counters = document.querySelectorAll(".stat-number");
+        const speed = 200;
 
-          if (isVisible) {
-            element.classList.add("active");
+        counters.forEach((counter) => {
+          const target = +counter.getAttribute("data-count");
+          const count = +counter.innerText.replace(/[^0-9]/g, "");
+          const increment = target / speed;
+
+          if (count < target) {
+            // Get original text to preserve non-numeric characters
+            const originalText = counter.innerText;
+            const suffix = originalText.replace(/[0-9]/g, "");
+
+            counter.innerText = Math.ceil(count + increment) + suffix;
+            setTimeout(animateCounter, 1);
+          } else {
+            // Set the final value with the original suffix
+            const originalText = counter.innerText;
+            const suffix = originalText.replace(/[0-9]/g, "");
+            counter.innerText = target + suffix;
           }
         });
       }
 
-      // Initialize scroll animations
-      window.addEventListener("scroll", checkScroll);
-      window.addEventListener("load", checkScroll);
+      // Animate progress bars
+      function animateProgressBars() {
+        const progressBars = document.querySelectorAll(".stat-progress-bar");
+
+        progressBars.forEach((bar) => {
+          const width = bar.getAttribute("data-width");
+          setTimeout(() => {
+            bar.style.width = width;
+          }, 300);
+        });
+      }
+
+      // Animate circular progress
+      function animateCircularProgress() {
+        const circles = document.querySelectorAll(".stat-circle-progress");
+
+        circles.forEach((circle) => {
+          const percent = circle.getAttribute("data-percent");
+          const circumference = 2 * Math.PI * 25; // radius is 25
+          const offset = circumference - (percent / 100) * circumference;
+
+          setTimeout(() => {
+            circle.style.strokeDashoffset = offset;
+          }, 300);
+        });
+      }
+
+      // Scroll animations with Intersection Observer
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+
+            // Special handling for stats counter
+            if (entry.target.classList.contains("stat-counter")) {
+              const counter = entry.target.querySelector(".stat-number");
+              if (counter && counter.innerText.includes("0")) {
+                animateCounter();
+                animateProgressBars();
+                animateCircularProgress();
+              }
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animation classes
+      document.addEventListener("DOMContentLoaded", function () {
+        const animatedElements = document.querySelectorAll(
+          ".fade-in, .stat-counter"
+        );
+
+        animatedElements.forEach((el) => {
+          observer.observe(el);
+        });
+      });
     </script>
   </body>
 </html>

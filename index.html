@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="EcoOil - Pengelolaan minyak jelantah berkelanjutan. Daur ulang minyak jelantah menjadi energi terbarukan dan produk ramah lingkungan."
+      content="Eco Jelantah - Pengelolaan minyak jelantah berkelanjutan. Daur ulang minyak jelantah menjadi energi terbarukan dan produk ramah lingkungan."
     />
     <meta
       name="keywords"
@@ -14,20 +14,20 @@
     <meta name="author" content="EcoOil Team" />
     <meta
       property="og:title"
-      content="EcoOil - Pengelolaan Minyak Jelantah Berkelanjutan"
+      content="Eco Jelantah - Pengelolaan Minyak Jelantah Berkelanjutan"
     />
     <meta
       property="og:description"
-      content="EcoOil - Pengelolaan minyak jelantah berkelanjutan. Daur ulang minyak jelantah menjadi energi terbarukan dan produk ramah lingkungan."
+      content="Eco Jelantah - Pengelolaan minyak jelantah berkelanjutan. Daur ulang minyak jelantah menjadi energi terbarukan dan produk ramah lingkungan."
     />
     <meta
       property="og:image"
       content="https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     />
-    <meta property="og:url" content="https://ecooil.id" />
+    <meta property="og:url" content="https://ecojelantah.id" />
     <meta name="twitter:card" content="summary_large_image" />
     <title itemprop="name">
-      EcoOil - Pengelolaan Minyak Jelantah Berkelanjutan
+      Eco Jelantah - Pengelolaan Minyak Jelantah Berkelanjutan
     </title>
 
     <!-- Preload Critical Resources -->
@@ -40,6 +40,11 @@
       rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       as="style"
+    />
+    <link
+      rel="preload"
+      href="Gemini_Generated_Image_p63358p63358p633-removebg-preview.png"
+      as="image"
     />
 
     <!-- Bootstrap CSS -->
@@ -65,6 +70,10 @@
         --dark-bg: #121212;
         --dark-card: #1e1e1e;
         --dark-text: #e0e0e0;
+        --dark-text-primary: #f8f9fa;
+        --dark-text-secondary: #adb5bd;
+        --dark-text-muted: #6c757d;
+        --dark-accent: #4dabf7;
         --transition: all 0.3s ease;
       }
 
@@ -618,6 +627,12 @@
         text-align: center;
         padding: 20px 15px;
         position: relative;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .process-step:hover {
+        transform: translateY(-5px);
       }
 
       .step-number {
@@ -639,6 +654,107 @@
       .process-step:hover .step-number {
         transform: scale(1.1);
         background-color: var(--primary-dark);
+      }
+
+      /* Process Popup Styles */
+      .process-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .process-popup.show {
+        display: flex;
+      }
+
+      .popup-content {
+        background-color: white;
+        border-radius: 15px;
+        max-width: 600px;
+        width: 100%;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        padding: 30px;
+        animation: popupFadeIn 0.3s ease;
+      }
+
+      [data-theme="dark"] .popup-content {
+        background-color: var(--dark-card);
+        color: var(--dark-text);
+      }
+
+      @keyframes popupFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .popup-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: var(--dark);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      [data-theme="dark"] .popup-close {
+        color: var(--dark-text);
+      }
+
+      .popup-close:hover {
+        color: var(--primary);
+      }
+
+      .popup-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .popup-step-number {
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .popup-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary);
+      }
+
+      .popup-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 20px;
       }
 
       /* Team Section - Improved Design */
@@ -785,11 +901,45 @@
         transform: translateY(-3px);
       }
 
+      /* Slider Navigation */
+      .slider-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 15px;
+      }
+
+      .slider-nav-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: white;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      [data-theme="dark"] .slider-nav-btn {
+        background-color: var(--dark-card);
+        color: var(--primary);
+      }
+
+      .slider-nav-btn:hover {
+        background-color: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
       /* Slider Indicators */
       .slider-indicators {
         display: flex;
         justify-content: center;
-        margin-top: 30px;
+        margin-top: 20px;
         gap: 8px;
       }
 
@@ -1558,232 +1708,6 @@
           break-inside: avoid;
         }
       }
-
-      /* Testimonial Section - Enhanced Design */
-      .testimonials-section {
-        position: relative;
-        padding: 100px 0;
-        background: linear-gradient(135deg, #f0f7f0 0%, #e0f0e0 100%);
-        overflow: hidden;
-      }
-
-      [data-theme="dark"] .testimonials-section {
-        background: linear-gradient(135deg, #1a2a1a 0%, #0f1f0f 100%);
-      }
-
-      .testimonials-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(46,125,50,0.05)" stroke-width="1"/></svg>');
-        z-index: 1;
-      }
-
-      .testimonials-container {
-        position: relative;
-        z-index: 2;
-      }
-
-      .testimonials-slider {
-        position: relative;
-        overflow: hidden;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      }
-
-      .testimonial-slide {
-        display: none;
-        padding: 60px 40px;
-        background-color: white;
-        border-radius: 20px;
-        text-align: center;
-        position: relative;
-      }
-
-      [data-theme="dark"] .testimonial-slide {
-        background-color: var(--dark-card);
-        color: var(--dark-text);
-      }
-
-      .testimonial-slide.active {
-        display: block;
-        animation: fadeIn 0.8s ease;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .testimonial-quote {
-        font-size: 1.4rem;
-        line-height: 1.8;
-        margin-bottom: 30px;
-        position: relative;
-        font-style: italic;
-        color: var(--dark);
-      }
-
-      [data-theme="dark"] .testimonial-quote {
-        color: var(--dark-text);
-      }
-
-      .testimonial-quote::before,
-      .testimonial-quote::after {
-        content: "";
-        font-size: 4rem;
-        color: var(--primary);
-        position: absolute;
-        opacity: 0.2;
-        font-family: Georgia, serif;
-      }
-
-      .testimonial-quote::before {
-        top: -20px;
-        left: -20px;
-      }
-
-      .testimonial-quote::after {
-        content: "
-          "";
-        bottom: -40px;
-        right: -20px;
-      }
-
-      .testimonial-author {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-      }
-
-      .testimonial-avatar {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid var(--primary);
-        margin-right: 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .testimonial-info {
-        text-align: left;
-      }
-
-      .testimonial-name {
-        font-size: 1.2rem;
-        font-weight: 700;
-        margin-bottom: 5px;
-        color: var(--primary);
-      }
-
-      .testimonial-position {
-        font-size: 1rem;
-        color: var(--gray);
-        margin-bottom: 10px;
-      }
-
-      [data-theme="dark"] .testimonial-position {
-        color: #bbb;
-      }
-
-      .testimonial-rating {
-        color: var(--secondary);
-        font-size: 1.2rem;
-      }
-
-      .testimonial-navigation {
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-        gap: 15px;
-      }
-
-      .testimonial-nav-btn {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: white;
-        border: 2px solid var(--primary);
-        color: var(--primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: var(--transition);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      [data-theme="dark"] .testimonial-nav-btn {
-        background-color: var(--dark-card);
-        color: var(--primary);
-      }
-
-      .testimonial-nav-btn:hover {
-        background-color: var(--primary);
-        color: white;
-        transform: scale(1.1);
-      }
-
-      .testimonial-indicators {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        gap: 10px;
-      }
-
-      .testimonial-indicator {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: rgba(46, 125, 50, 0.3);
-        cursor: pointer;
-        transition: var(--transition);
-      }
-
-      .testimonial-indicator.active {
-        background-color: var(--primary);
-        transform: scale(1.2);
-      }
-
-      /* Mobile Responsive for Testimonials */
-      @media (max-width: 768px) {
-        .testimonial-slide {
-          padding: 40px 20px;
-        }
-
-        .testimonial-quote {
-          font-size: 1.2rem;
-        }
-
-        .testimonial-avatar {
-          width: 60px;
-          height: 60px;
-        }
-
-        .testimonial-name {
-          font-size: 1rem;
-        }
-
-        .testimonial-position {
-          font-size: 0.9rem;
-        }
-
-        .testimonial-nav-btn {
-          width: 40px;
-          height: 40px;
-        }
-      }
     </style>
   </head>
   <body>
@@ -1832,7 +1756,7 @@
             class="navbar-logo me-2"
             itemprop="logo"
           />
-          <span class="brand-text" itemprop="name">EcoOil</span>
+          <span class="brand-text" itemprop="name">Eco Jelantah</span>
         </a>
 
         <!-- Toggle Button -->
@@ -1923,10 +1847,10 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0 fade-in-left">
-            <h2 class="fw-bold mb-4">Tentang EcoOil</h2>
+            <h2 class="fw-bold mb-4">Tentang Eco Jelantah</h2>
             <p class="mb-4">
-              EcoOil adalah perusahaan yang berkomitmen untuk mengelola minyak
-              jelantah secara bertanggung jawab dan berkelanjutan. Kami
+              Eco Jelantah adalah perusahaan yang berkomitmen untuk mengelola
+              minyak jelantah secara bertanggung jawab dan berkelanjutan. Kami
               bertujuan untuk mengurangi dampak lingkungan dari pembuangan
               minyak jelantah yang tidak tepat.
             </p>
@@ -2039,7 +1963,7 @@
         </div>
         <div class="row">
           <div class="col-md-3 col-sm-6">
-            <div class="process-step fade-in delay-1">
+            <div class="process-step fade-in delay-1" data-step="1">
               <div class="step-number">1</div>
               <h4>Pengumpulan</h4>
               <p>
@@ -2049,7 +1973,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-6">
-            <div class="process-step fade-in delay-2">
+            <div class="process-step fade-in delay-2" data-step="2">
               <div class="step-number">2</div>
               <h4>Pemurnian</h4>
               <p>
@@ -2059,7 +1983,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-6">
-            <div class="process-step fade-in delay-3">
+            <div class="process-step fade-in delay-3" data-step="3">
               <div class="step-number">3</div>
               <h4>Konversi</h4>
               <p>
@@ -2069,7 +1993,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-6">
-            <div class="process-step fade-in delay-4">
+            <div class="process-step fade-in delay-4" data-step="4">
               <div class="step-number">4</div>
               <h4>Distribusi</h4>
               <p>
@@ -2082,6 +2006,21 @@
       </div>
     </section>
 
+    <!-- Process Popup Modals -->
+    <div class="process-popup" id="processPopup">
+      <div class="popup-content">
+        <button class="popup-close" id="popupClose">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="popup-header">
+          <div class="popup-step-number" id="popupStepNumber">1</div>
+          <h3 class="popup-title" id="popupTitle">Pengumpulan</h3>
+        </div>
+        <img id="popupImage" class="popup-image" src="" alt="" />
+        <div id="popupDescription"></div>
+      </div>
+    </div>
+
     <!-- Team Section - Improved Design -->
     <section class="team-section" id="team" itemprop="employee">
       <div class="container">
@@ -2089,7 +2028,7 @@
           <h2>Tim Kami</h2>
           <p>
             Bertemu dengan tim profesional yang berdedikasi di balik kesuksesan
-            EcoOil.
+            Eco Jelantah.
           </p>
         </div>
 
@@ -2107,12 +2046,8 @@
                 />
               </div>
               <div class="team-info">
-                <h3 class="team-name">Ahmad Wijaya</h3>
-                <p class="team-position">Direktur Utama</p>
-                <p class="team-description">
-                  Memimpin strategi perusahaan dengan pengalaman 15 tahun di
-                  industri energi terbarukan.
-                </p>
+                <h3 class="team-name">Rendi Feriansyah</h3>
+                <p class="team-position">202343500875</p>
                 <div class="team-social">
                   <a href="#" aria-label="LinkedIn"
                     ><i class="fab fa-linkedin-in"></i
@@ -2139,12 +2074,8 @@
                 />
               </div>
               <div class="team-info">
-                <h3 class="team-name">Sari Dewi</h3>
-                <p class="team-position">Kepala Operasional</p>
-                <p class="team-description">
-                  Mengawasi seluruh proses operasional dengan fokus pada
-                  efisiensi dan kualitas.
-                </p>
+                <h3 class="team-name">Wahid Hidayatuhllah</h3>
+                <p class="team-position">202343500944</p>
                 <div class="team-social">
                   <a href="#" aria-label="LinkedIn"
                     ><i class="fab fa-linkedin-in"></i
@@ -2171,12 +2102,8 @@
                 />
               </div>
               <div class="team-info">
-                <h3 class="team-name">Rina Kartika</h3>
-                <p class="team-position">Manajer Teknologi</p>
-                <p class="team-description">
-                  Ahli dalam teknologi pengolahan limbah dengan spesialisasi
-                  dalam konversi energi.
-                </p>
+                <h3 class="team-name">Rafid Trian Rifadi</h3>
+                <p class="team-position">202343500988</p>
                 <div class="team-social">
                   <a href="#" aria-label="LinkedIn"
                     ><i class="fab fa-linkedin-in"></i
@@ -2203,12 +2130,8 @@
                 />
               </div>
               <div class="team-info">
-                <h3 class="team-name">Budi Santoso</h3>
-                <p class="team-position">Koordinator Lapangan</p>
-                <p class="team-description">
-                  Memastikan operasional pengumpulan minyak jelantah berjalan
-                  lancar di seluruh area.
-                </p>
+                <h3 class="team-name">Yogi Ismaya</h3>
+                <p class="team-position">202343501012</p>
                 <div class="team-social">
                   <a href="#" aria-label="LinkedIn"
                     ><i class="fab fa-linkedin-in"></i
@@ -2235,12 +2158,8 @@
                 />
               </div>
               <div class="team-info">
-                <h3 class="team-name">Dian Pratama</h3>
-                <p class="team-position">Manajer Pemasaran</p>
-                <p class="team-description">
-                  Mengembangkan strategi pemasaran dan membangun hubungan dengan
-                  klien dan mitra.
-                </p>
+                <h3 class="team-name">Mohammad Abda Alif</h3>
+                <p class="team-position">202343500916</p>
                 <div class="team-social">
                   <a href="#" aria-label="LinkedIn"
                     ><i class="fab fa-linkedin-in"></i
@@ -2267,12 +2186,8 @@
                 />
               </div>
               <div class="team-info">
-                <h3 class="team-name">Rizki Ananda</h3>
-                <p class="team-position">Koordinator CSR</p>
-                <p class="team-description">
-                  Mengelola program tanggung jawab sosial perusahaan dan edukasi
-                  masyarakat.
-                </p>
+                <h3 class="team-name">Diffa Algifari Adzsa</h3>
+                <p class="team-position">202343501007</p>
                 <div class="team-social">
                   <a href="#" aria-label="LinkedIn"
                     ><i class="fab fa-linkedin-in"></i
@@ -2299,12 +2214,8 @@
                 />
               </div>
               <div class="team-info">
-                <h3 class="team-name">Fajar Nugroho</h3>
-                <p class="team-position">Analis Data</p>
-                <p class="team-description">
-                  Menganalisis data operasional dan kinerja untuk pengambilan
-                  keputusan strategis.
-                </p>
+                <h3 class="team-name">Ahmad Al Rasyid</h3>
+                <p class="team-position">202343500897</p>
                 <div class="team-social">
                   <a href="#" aria-label="LinkedIn"
                     ><i class="fab fa-linkedin-in"></i
@@ -2323,7 +2234,7 @@
             <div class="team-card fade-in-up delay-3">
               <div class="team-img-container">
                 <img
-                  src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                  src="https://images.unsplash.com/photo-1544725173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                   class="team-img"
                   alt="Hendra Setiawan"
                   loading="lazy"
@@ -2331,11 +2242,8 @@
                 />
               </div>
               <div class="team-info">
-                <h3 class="team-name">Hendra Setiawan</h3>
-                <p class="team-position">Spesialis Logistik</p>
-                <p class="team-description">
-                  Mengoptimalkan rantai pasok dan distribusi produk daur ulang.
-                </p>
+                <h3 class="team-name">Ridwan Nugraha</h3>
+                <p class="team-position">202343500917</p>
                 <div class="team-social">
                   <a href="#" aria-label="LinkedIn"
                     ><i class="fab fa-linkedin-in"></i
@@ -2350,6 +2258,16 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+          <button class="slider-nav-btn" id="prevSlide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="slider-nav-btn" id="nextSlide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
 
         <!-- Slider Indicators -->
@@ -2425,7 +2343,7 @@
                     <i class="fas fa-envelope"></i>
                   </a>
                 </div>
-                <a href="artikel.html" class="btn btn-outline-primary btn-sm"
+                <a href="artikel1.html" class="btn btn-outline-primary btn-sm"
                   >Baca Selengkapnya</a
                 >
               </div>
@@ -2444,7 +2362,7 @@
                 />
               </div>
               <div class="card-body">
-                <span class="badge bg-primary mb-2">Penelitian</span>
+                <span class="badge bg-success mb-2">Penelitian</span>
                 <h5 class="card-title">
                   Manfaat Biodiesel dari Minyak Jelantah
                 </h5>
@@ -2502,10 +2420,12 @@
                 />
               </div>
               <div class="card-body">
-                <span class="badge bg-primary mb-2">Berita</span>
-                <h5 class="card-title">EcoOil Raih Penghargaan Lingkungan</h5>
+                <span class="badge bg-info mb-2">Berita</span>
+                <h5 class="card-title">
+                  Eco Jelantah Raih Penghargaan Lingkungan
+                </h5>
                 <p class="card-text">
-                  Kami bangga mengumumkan bahwa EcoOil telah menerima
+                  Kami bangga mengumumkan bahwa Eco Jelantah telah menerima
                   penghargaan atas kontribusi dalam pelestarian lingkungan.
                 </p>
                 <div class="social-share mb-3">
@@ -2550,179 +2470,6 @@
           <a href="artikel.html" class="btn btn-primary btn-lg"
             >Lihat Semua Artikel</a
           >
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section - Enhanced Design -->
-    <section class="testimonials-section" id="testimonials" itemprop="review">
-      <div class="container testimonials-container">
-        <div class="section-title text-center fade-in-up">
-          <h2>Apa Kata Klien Kami</h2>
-          <p>Testimoni dari pelanggan yang telah menggunakan layanan kami</p>
-        </div>
-
-        <div class="testimonials-slider">
-          <!-- Testimonial 1 -->
-          <div class="testimonial-slide active">
-            <div class="testimonial-quote">
-              "Layanan EcoOil sangat profesional. Proses pengambilan minyak
-              jelantah cepat dan mudah. Sekarang kami tidak perlu khawatir
-              dengan limbah minyak dari restoran."
-            </div>
-            <div class="testimonial-author">
-              <img
-                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                class="testimonial-avatar"
-                alt="Sarah Restaurant"
-                loading="lazy"
-                itemprop="image"
-              />
-              <div class="testimonial-info">
-                <h4 class="testimonial-name">Sarah Restaurant</h4>
-                <p class="testimonial-position">Pemilik Restoran</p>
-                <div class="testimonial-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-quote">
-              "Sebagai hotel besar, kami menghasilkan banyak minyak jelantah.
-              EcoOil memberikan solusi yang tepat dengan jadwal pengambilan yang
-              fleksibel dan layanan yang ramah."
-            </div>
-            <div class="testimonial-author">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                class="testimonial-avatar"
-                alt="Budi Hartono"
-                loading="lazy"
-                itemprop="image"
-              />
-              <div class="testimonial-info">
-                <h4 class="testimonial-name">Budi Hartono</h4>
-                <p class="testimonial-position">Manajer Hotel</p>
-                <div class="testimonial-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-quote">
-              "Saya senang bisa berkontribusi pada lingkungan dengan mendaur
-              ulang minyak jelantah melalui EcoOil. Prosesnya mudah dan timnya
-              sangat membantu."
-            </div>
-            <div class="testimonial-author">
-              <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                class="testimonial-avatar"
-                alt="Dewi Lestari"
-                loading="lazy"
-                itemprop="image"
-              />
-              <div class="testimonial-info">
-                <h4 class="testimonial-name">Dewi Lestari</h4>
-                <p class="testimonial-position">Ibu Rumah Tangga</p>
-                <div class="testimonial-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-navigation">
-          <button class="testimonial-nav-btn" id="prevTestimonial">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="testimonial-nav-btn" id="nextTestimonial">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-
-        <div class="testimonial-indicators">
-          <div class="testimonial-indicator active" data-slide="0"></div>
-          <div class="testimonial-indicator" data-slide="1"></div>
-          <div class="testimonial-indicator" data-slide="2"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="section-padding" itemprop="brand">
-      <div class="container">
-        <div class="section-title text-center fade-in-up">
-          <h2>Mitra Kami</h2>
-          <p>
-            Berkolaborasi dengan berbagai perusahaan dan organisasi terpercaya
-          </p>
-        </div>
-        <div class="row align-items-center justify-content-center">
-          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
-            <img
-              src="bri.png"
-              alt="Mitra 1"
-              class="img-fluid partner-logo delay-1"
-              loading="lazy"
-              itemprop="logo"
-            />
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
-            <img
-              src="bni.png"
-              alt="Mitra 2"
-              class="img-fluid partner-logo delay-2"
-              loading="lazy"
-              itemprop="logo"
-            />
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
-            <img
-              src="ml.png"
-              alt="Mitra 3"
-              class="img-fluid partner-logo delay-3"
-              loading="lazy"
-              itemprop="logo"
-            />
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
-            <img
-              src="mc.png"
-              alt="Mitra 4"
-              class="img-fluid partner-logo delay-4"
-              loading="lazy"
-              itemprop="logo"
-            />
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 text-center mb-4">
-            <img
-              src="https://via.placeholder.com/120x60/2E7D32/FFFFFF?text=School"
-              alt="Mitra 5"
-              class="img-fluid partner-logo delay-5"
-              loading="lazy"
-              itemprop="logo"
-            />
-          </div>
         </div>
       </div>
     </section>
@@ -2841,27 +2588,6 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="card gallery-card h-100 fade-in-up delay-1 hover-lift">
-              <div class="img-zoom img-lightbox">
-                <img
-                  src="https://images.unsplash.com/photo-156568001312-81b0d304d0b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                  class="card-img-top"
-                  alt="Penghargaan"
-                  style="height: 250px; object-fit: cover"
-                  loading="lazy"
-                  itemprop="image"
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Penghargaan & Sertifikat</h5>
-                <p class="card-text">
-                  Pengakuan atas komitmen kami terhadap penghargaan atas
-                  kontribusi dalam pelestarian lingkungan.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -2958,7 +2684,7 @@
             </div>
             <div class="d-flex align-items-center mb-3">
               <i class="fas fa-envelope contact-icon"></i>
-              <p class="mb-0">info@ecooil.id</p>
+              <p class="mb-0">info@ecojelantah.id</p>
             </div>
             <div class="d-flex align-items">
               <i class="fas fa-clock contact-icon"></i>
@@ -3022,7 +2748,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0 fade-in-left">
-            <h4 class="mb-4 text-warning">EcoOil</h4>
+            <h4 class="mb-4 text-warning">Eco Jelantah</h4>
             <p>
               Perusahaan pengelolaan minyak jelantah terdepan yang berkomitmen
               untuk menciptakan lingkungan yang lebih bersih dan berkelanjutan.
@@ -3079,7 +2805,7 @@
       </div>
       <hr class="my-5 bg-light" />
       <div class="text-center fade-in-up">
-        <p class="mb-0">&copy; 2023 EcoOil. Semua Hak Dilindungi.</p>
+        <p class="mb-0">&copy; 2023 Eco Jelantah. Semua Hak Dilindungi.</p>
       </div>
     </footer>
 
@@ -3125,6 +2851,94 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+      // Process popup data
+      const processDetails = {
+        1: {
+          title: "Pengumpulan",
+          image:
+            "https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+          description: `
+            <h4>Tahap Pengumpulan Minyak Jelantah</h4>
+            <p>Pada tahap pertama ini, kami melakukan pengumpulan minyak jelantah dari berbagai sumber seperti rumah tangga, restoran, hotel, dan industri makanan. Tim kami yang terlatih akan menjemput minyak jelantah sesuai jadwal yang telah disepakati.</p>
+            <h5>Prosedur Pengumpulan:</h5>
+            <ul>
+              <li>Penerimaan permintaan penjemputan melalui aplikasi atau telepon</li>
+              <li>Penjadwalan pengambilan yang fleksibel sesuai kebutuhan klien</li>
+              <li>Pemeriksaan awal kualitas minyak jelantah</li>
+              <li>Pengemasan menggunakan wadah standar yang aman dan ramah lingkungan</li>
+              <li>Pencatatan data untuk setiap batch yang dikumpulkan</li>
+            </ul>
+            <p>Kami memastikan proses pengumpulan dilakukan dengan standar kebersihan yang ketat untuk menjaga kualitas minyak jelantah yang akan diolah selanjutnya.</p>
+          `,
+        },
+        2: {
+          title: "Pemurnian",
+          image:
+            "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+          description: `
+            <h4>Tahap Pemurnian Minyak Jelantah</h4>
+            <p>Setelah dikumpulkan, minyak jelantah melalui proses pemurnian untuk menghilangkan kotoran, partikel makanan, dan air yang tercampur. Proses ini sangat penting untuk memastikan kualitas minyak sebelum masuk ke tahap konversi.</p>
+            <h5>Proses Pemurnian:</h5>
+            <ul>
+              <li>Saringan kasar untuk menghilangkan partikel makanan besar</li>
+              <li>Pemisahan untuk memisahkan air dari minyak</li>
+              <li>Filtrasi bertingkat menggunakan berbagai ukuran filter</li>
+              <li>Pengujian kualitas untuk memastikan tingkat kemurnian optimal</li>
+              <li>Penyimpanan sementara di tangki khusus sebelum proses konversi</li>
+            </ul>
+            <p>Teknologi pemurnian kami menggunakan metode yang ramah lingkungan dan meminimalkan limbah yang dihasilkan dari proses ini.</p>
+          `,
+        },
+        3: {
+          title: "Konversi",
+          image:
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+          description: `
+            <h4>Tahap Konversi Minyak Jelantah</h4>
+            <p>Minyak jelantah yang telah melalui tahap pemurnian selanjutnya dikonversi menjadi produk bernilai tinggi seperti biodiesel, sabun, dan produk ramah lingkungan lainnya.</p>
+            <h5>Proses Konversi ke Biodiesel:</h5>
+            <ul>
+              <li>Proses transesterifikasi dengan menambahkan metanol dan katalis</li>
+              <li>Pemisahan glycerol dari biodiesel</li>
+              <li>Pencucian biodiesel untuk menghilangkan sisa katalis</li>
+              <li>Pengeringan untuk menghilangkan sisa air</li>
+              <li>Pengujian kualitas sesuai standar biodiesel nasional</li>
+            </ul>
+            <h5>Proses Konversi ke Produk Lain:</h5>
+            <ul>
+              <li>Pembuatan sabun melalui proses saponifikasi</li>
+              <li>Pengolahan menjadi lilin ramah lingkungan</li>
+              <li>Pembuatan pelumas industri ringan</li>
+            </ul>
+            <p>Semua proses konversi dilakukan dengan teknologi modern yang meminimalkan emisi dan limbah.</p>
+          `,
+        },
+        4: {
+          title: "Distribusi",
+          image:
+            "https://images.unsplash.com/photo-1562077981-4d7eafd88c7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+          description: `
+            <h4>Tahap Distribusi Produk</h4>
+            <p>Produk akhir hasil konversi minyak jelantah didistribusikan ke berbagai pasar dan pengguna akhir. Kami memastikan produk yang dihasilkan memenuhi standar kualitas yang tinggi dan aman untuk digunakan.</p>
+            <h5>Saluran Distribusi:</h5>
+            <ul>
+              <li>Biodiesel: dipasok ke stasiun pengisian bahan bakar dan industri transportasi</li>
+              <li>Sabun: didistribusikan ke toko ritel dan pasar tradisional</li>
+              <li>Lilin: dipasok ke distributor peralatan rumah tangga</li>
+              <li>Pelumas: dijual ke industri kecil dan menengah</li>
+            </ul>
+            <h5>Komitmen Kualitas:</h5>
+            <ul>
+              <li>Pengemasan yang ramah lingkungan dan informatif</li>
+              <li>Sertifikasi produk sesuai standar nasional</li>
+              <li>Program edukasi untuk pengguna akhir</li>
+              <li>Sistem logistik yang efisien untuk mengurangi jejak karbon</li>
+            </ul>
+            <p>Kami juga memberikan informasi transparan tentang kandungan dan cara penggunaan produk yang aman bagi konsumen dan lingkungan.</p>
+          `,
+        },
+      };
+
       // Loading Screen
       window.addEventListener("load", function () {
         setTimeout(function () {
@@ -3409,11 +3223,14 @@
         passive: true,
       });
 
-      // Team Slider Functionality - Improved
+      // Team Slider Functionality - Manual Control
       document.addEventListener("DOMContentLoaded", function () {
         const teamSlider = document.getElementById("teamSlider");
         const indicators = document.querySelectorAll(".indicator");
         const teamCards = document.querySelectorAll(".team-card");
+        const prevBtn = document.getElementById("prevSlide");
+        const nextBtn = document.getElementById("nextSlide");
+
         let currentSlide = 0;
         const cardWidth = 310; // card width + margin
         const visibleCards = window.innerWidth >= 768 ? 3 : 1;
@@ -3435,27 +3252,26 @@
           });
         }
 
-        // Auto slide with slower speed for better viewing
-        function autoSlide() {
-          currentSlide = (currentSlide + 1) % (maxSlide + 1);
+        // Next slide
+        function nextSlide() {
+          currentSlide = Math.min(currentSlide + 1, maxSlide);
+          updateSlider();
+        }
+
+        // Previous slide
+        function prevSlide() {
+          currentSlide = Math.max(currentSlide - 1, 0);
           updateSlider();
         }
 
         // Set initial position
         updateSlider();
 
-        // Start auto sliding with longer interval
-        const slideInterval = setInterval(autoSlide, 5000);
+        // Add click event to next button
+        nextBtn.addEventListener("click", nextSlide);
 
-        // Pause on hover
-        teamSlider.addEventListener("mouseenter", () => {
-          clearInterval(slideInterval);
-        });
-
-        // Resume on mouse leave
-        teamSlider.addEventListener("mouseleave", () => {
-          slideInterval = setInterval(autoSlide, 5000);
-        });
+        // Add click event to previous button
+        prevBtn.addEventListener("click", prevSlide);
 
         // Handle indicator clicks
         indicators.forEach((indicator, index) => {
@@ -3475,81 +3291,81 @@
             updateSlider();
           }
         });
+
+        // Add touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        teamSlider.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        });
+
+        teamSlider.addEventListener("touchend", (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        });
+
+        function handleSwipe() {
+          if (touchEndX < touchStartX - 50) {
+            // Swipe left - next slide
+            nextSlide();
+          }
+          if (touchEndX > touchStartX + 50) {
+            // Swipe right - previous slide
+            prevSlide();
+          }
+        }
       });
 
-      // Testimonial Slider Functionality
+      // Process Popup Functionality
       document.addEventListener("DOMContentLoaded", function () {
-        const testimonialSlides =
-          document.querySelectorAll(".testimonial-slide");
-        const testimonialIndicators = document.querySelectorAll(
-          ".testimonial-indicator"
-        );
-        const prevBtn = document.getElementById("prevTestimonial");
-        const nextBtn = document.getElementById("nextTestimonial");
-        let currentTestimonial = 0;
+        const processSteps = document.querySelectorAll(".process-step");
+        const processPopup = document.getElementById("processPopup");
+        const popupClose = document.getElementById("popupClose");
+        const popupStepNumber = document.getElementById("popupStepNumber");
+        const popupTitle = document.getElementById("popupTitle");
+        const popupImage = document.getElementById("popupImage");
+        const popupDescription = document.getElementById("popupDescription");
 
-        // Function to show a specific testimonial
-        function showTestimonial(index) {
-          // Hide all testimonials
-          testimonialSlides.forEach((slide) => {
-            slide.classList.remove("active");
-          });
+        // Add click event to each process step
+        processSteps.forEach((step) => {
+          step.addEventListener("click", function () {
+            const stepNum = this.getAttribute("data-step");
+            const stepData = processDetails[stepNum];
 
-          // Remove active class from all indicators
-          testimonialIndicators.forEach((indicator) => {
-            indicator.classList.remove("active");
-          });
+            if (stepData) {
+              popupStepNumber.textContent = stepNum;
+              popupTitle.textContent = stepData.title;
+              popupImage.src = stepData.image;
+              popupDescription.innerHTML = stepData.description;
 
-          // Show the selected testimonial
-          testimonialSlides[index].classList.add("active");
-          testimonialIndicators[index].classList.add("active");
-
-          // Update current testimonial index
-          currentTestimonial = index;
-        }
-
-        // Function to show the next testimonial
-        function nextTestimonial() {
-          const newIndex = (currentTestimonial + 1) % testimonialSlides.length;
-          showTestimonial(newIndex);
-        }
-
-        // Function to show the previous testimonial
-        function prevTestimonial() {
-          const newIndex =
-            currentTestimonial === 0
-              ? testimonialSlides.length - 1
-              : currentTestimonial - 1;
-          showTestimonial(newIndex);
-        }
-
-        // Add click event to next button
-        nextBtn.addEventListener("click", nextTestimonial);
-
-        // Add click event to previous button
-        prevBtn.addEventListener("click", prevTestimonial);
-
-        // Add click event to indicators
-        testimonialIndicators.forEach((indicator, index) => {
-          indicator.addEventListener("click", () => {
-            showTestimonial(index);
+              // Show popup
+              processPopup.classList.add("show");
+              document.body.style.overflow = "hidden"; // Prevent scrolling when popup is open
+            }
           });
         });
 
-        // Auto-play testimonials
-        const testimonialInterval = setInterval(nextTestimonial, 8000);
-
-        // Pause auto-play on hover
-        const testimonialsSlider = document.querySelector(
-          ".testimonials-slider"
-        );
-        testimonialsSlider.addEventListener("mouseenter", () => {
-          clearInterval(testimonialInterval);
+        // Close popup when clicking close button
+        popupClose.addEventListener("click", function () {
+          processPopup.classList.remove("show");
+          document.body.style.overflow = "auto"; // Enable scrolling again
         });
 
-        // Resume auto-play on mouse leave
-        testimonialsSlider.addEventListener("mouseleave", () => {
-          setInterval(nextTestimonial, 8000);
+        // Close popup when clicking outside popup content
+        processPopup.addEventListener("click", function (e) {
+          if (e.target === processPopup) {
+            processPopup.classList.remove("show");
+            document.body.style.overflow = "auto"; // Enable scrolling again
+          }
+        });
+
+        // Close popup when pressing Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && processPopup.classList.contains("show")) {
+            processPopup.classList.remove("show");
+            document.body.style.overflow = "auto"; // Enable scrolling again
+          }
         });
       });
     </script>
