@@ -500,3 +500,110 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Video Modal Functionality
+document.addEventListener("DOMContentLoaded", function () {
+  // Get video modals
+  const videoModal1 = document.getElementById("videoModal1");
+  const videoModal2 = document.getElementById("videoModal2");
+  const videoPlayer1 = document.getElementById("videoPlayer1");
+  const videoPlayer2 = document.getElementById("videoPlayer2");
+
+  // Create fullscreen video elements
+  const fullscreenVideo = document.createElement("div");
+  fullscreenVideo.className = "fullscreen-video";
+  fullscreenVideo.innerHTML = `
+    <div class="fullscreen-video-close"><i class="fas fa-times"></i></div>
+    <video id="fullscreenPlayer" controls></video>
+  `;
+  document.body.appendChild(fullscreenVideo);
+
+  const fullscreenClose = fullscreenVideo.querySelector(
+    ".fullscreen-video-close"
+  );
+  const fullscreenPlayer = fullscreenVideo.querySelector("#fullscreenPlayer");
+
+  // Add fullscreen button to modals
+  const fullscreenBtn1 = document.createElement("button");
+  fullscreenBtn1.className = "fullscreen-video-btn";
+  fullscreenBtn1.innerHTML = '<i class="fas fa-expand"></i> Fullscreen';
+  videoModal1.querySelector(".modal-footer").appendChild(fullscreenBtn1);
+
+  const fullscreenBtn2 = document.createElement("button");
+  fullscreenBtn2.className = "fullscreen-video-btn";
+  fullscreenBtn2.innerHTML = '<i class="fas fa-expand"></i> Fullscreen';
+  videoModal2.querySelector(".modal-footer").appendChild(fullscreenBtn2);
+
+  // Stop video when modal is closed
+  videoModal1.addEventListener("hidden.bs.modal", function () {
+    videoPlayer1.pause();
+    videoPlayer1.currentTime = 0;
+  });
+
+  videoModal2.addEventListener("hidden.bs.modal", function () {
+    videoPlayer2.pause();
+    videoPlayer2.currentTime = 0;
+  });
+
+  // Handle fullscreen button clicks
+  fullscreenBtn1.addEventListener("click", function () {
+    fullscreenPlayer.src = videoPlayer1.querySelector("source").src;
+    fullscreenPlayer.currentTime = videoPlayer1.currentTime;
+    fullscreenPlayer.play();
+    fullscreenVideo.classList.add("active");
+    videoModal1.querySelector(".btn-close").click();
+  });
+
+  fullscreenBtn2.addEventListener("click", function () {
+    fullscreenPlayer.src = videoPlayer2.querySelector("source").src;
+    fullscreenPlayer.currentTime = videoPlayer2.currentTime;
+    fullscreenPlayer.play();
+    fullscreenVideo.classList.add("active");
+    videoModal2.querySelector(".btn-close").click();
+  });
+
+  // Handle fullscreen close
+  fullscreenClose.addEventListener("click", function () {
+    fullscreenPlayer.pause();
+    fullscreenVideo.classList.remove("active");
+  });
+
+  // Handle escape key for fullscreen
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && fullscreenVideo.classList.contains("active")) {
+      fullscreenPlayer.pause();
+      fullscreenVideo.classList.remove("active");
+    }
+  });
+
+  // Handle responsive video player
+  function handleVideoResize() {
+    if (window.innerWidth < 576) {
+      // For very small screens, ensure video controls are accessible
+      videoPlayer1.setAttribute("controlsList", "nodownload");
+      videoPlayer2.setAttribute("controlsList", "nodownload");
+      fullscreenPlayer.setAttribute("controlsList", "nodownload");
+    }
+  }
+
+  // Initial check and add resize listener
+  handleVideoResize();
+  window.addEventListener("resize", handleVideoResize);
+
+  // Add loading indicator for videos
+  videoPlayer1.addEventListener("waiting", function () {
+    // Show loading indicator
+  });
+
+  videoPlayer1.addEventListener("canplay", function () {
+    // Hide loading indicator
+  });
+
+  videoPlayer2.addEventListener("waiting", function () {
+    // Show loading indicator
+  });
+
+  videoPlayer2.addEventListener("canplay", function () {
+    // Hide loading indicator
+  });
+});
